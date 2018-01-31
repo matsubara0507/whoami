@@ -1,0 +1,44 @@
+name:                whoami
+version:             0.1.0.0
+github:              "matsubara0507/whoami"
+license:             BSD3
+author:              "MATSUBARA Nobutada"
+maintainer:          "t12307043@gunma-u.ac.jp"
+copyright:           "2018 MATSUBARA Nobutada"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+description:         Please see the README on Github at <https://github.com/matsubara0507/whoami#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- extensible
+- lens
+- text
+
+library:
+  source-dirs: src
+
+executables:
+  whoami-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - whoami
+
+tests:
+  whoami-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - whoami
