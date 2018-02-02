@@ -1,7 +1,7 @@
 name:                whoami
 version:             0.1.0.0
 github:              "matsubara0507/whoami"
-license:             BSD3
+license:             MIT
 author:              "MATSUBARA Nobutada"
 maintainer:          "t12307043@gunma-u.ac.jp"
 copyright:           "2018 MATSUBARA Nobutada"
@@ -10,6 +10,9 @@ extra-source-files:
 - README.md
 - CHANGELOG.md
 
+ghc-options:
+- -Wall
+
 description:         Please see the README on Github at <https://github.com/matsubara0507/whoami#readme>
 
 dependencies:
@@ -17,9 +20,19 @@ dependencies:
 - extensible
 - lens
 - text
+- yaml
 
 library:
   source-dirs: src
+  dependencies:
+  - containers
+  - data-default
+  - exceptions
+  - extensible-instances
+  - mtl
+  - req
+  - text-conversions
+  - scalpel-core
 
 executables:
   whoami-exe:

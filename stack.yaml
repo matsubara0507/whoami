@@ -1,3 +1,6 @@
 resolver: lts-10.4
 packages:
 - .
+extra-deps:
+- git: https://github.com/matsubara0507/extensible-instances.git
+  commit: a9b50cc3170c72ac0b6cacc4b3fc16cbbba0a7db
