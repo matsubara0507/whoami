@@ -18,6 +18,7 @@ description:         Please see the README on Github at <https://github.com/mats
 dependencies:
 - base >= 4.7 && < 5
 - extensible
+- extensible-instances
 - lens
 - text
 - yaml
@@ -28,7 +29,6 @@ library:
   - containers
   - data-default
   - exceptions
-  - extensible-instances
   - mtl
   - req
   - text-conversions
@@ -47,7 +47,7 @@ executables:
 
 tests:
   whoami-test:
-    main:                Spec.hs
+    main:                Driver.hs
     source-dirs:         test
     ghc-options:
     - -threaded
@@ -55,3 +55,5 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - whoami
+    - tasty
+    - tasty-hunit
