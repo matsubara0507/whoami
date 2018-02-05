@@ -9,11 +9,11 @@ import           Control.Lens                    ((%~), (&), (^.))
 import           Data.Extensible
 import           Whoami.Service.Data.Class       (Service (..))
 import           Whoami.Service.Data.Config      (PostConfig)
-import           Whoami.Service.Data.Info        (Post (..))
+import           Whoami.Service.Data.Info        (Post (..), validDate)
 import           Whoami.Service.Internal.Fetch   (fetchHtml)
 import           Whoami.Service.Internal.Scrape  (scrapeDate, scrapeTitle)
 import           Whoami.Service.Internal.Uniform (throwUniformError)
-import           Whoami.Service.Internal.Utils   (embedM)
+import           Whoami.Service.Internal.Utils   (embedM, valid)
 
 data AnyPost = AnyPost PostConfig
 
@@ -28,4 +28,4 @@ instance Service AnyPost where
      <: #type <@=> embedM (#post <@=> Post <$> hsequence (#date <@=> date <: nil))
      <: nil
     where
-      date = maybe (throwUniformError "no #date") pure $ conf ^. #date
+      date = maybe (throwUniformError "no #date") pure $ valid validDate =<< (conf ^. #date)

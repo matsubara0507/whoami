@@ -29,6 +29,7 @@ library:
   - containers
   - data-default
   - exceptions
+  - megaparsec
   - mtl
   - req
   - text-conversions
