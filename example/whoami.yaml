@@ -24,8 +24,8 @@ qiita:
   posts: true
 app:
   - name: AnaQRam
-    url: https://github.com/matsubara0507/AnaQRam
+    url: http://github.com/matsubara0507/AnaQRam
     description: QRコードを利用したアナグラム(並び替えパズル)
   - name: timeout-sesstype-cli
-    url: https://github.com/matsubara0507/timeout-sesstype.hs
+    url: http://github.com/matsubara0507/timeout-sesstype.hs
     description: 修論で定義した疑似言語のCLI
