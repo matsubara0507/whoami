@@ -21,10 +21,11 @@ site0
    <: #type @= embedAssoc (#site @= Site)
    <: nil
 
+{-# ANN test_anySiteToInfo ("HLint: ignore Use head" :: String) #-}
 test_anySiteToInfo :: IO [TestTree]
 test_anySiteToInfo = do
   (Right conf) <- decodeFileEither exampleConfigFile
-  sequence $
-    [ testCase "example site0 to uniformed info" <$>
+  sequence
+    [ testCase "example site0 to uniformed info" .
         (@?= Right site0) <$> runServiceM conf (toInfo . AnySite $ (conf ^. #site) !! 0)
     ]

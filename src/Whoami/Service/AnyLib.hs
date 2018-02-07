@@ -14,7 +14,7 @@ import           Whoami.Service.Data.Info       (Library (..), ServiceType)
 import           Whoami.Service.Internal.Fetch  (fetchHtml)
 import           Whoami.Service.Internal.Scrape (scrapeDesc)
 
-data AnyLib = AnyLib LibConfig
+newtype AnyLib = AnyLib LibConfig
 
 instance Service AnyLib where
   fetch (AnyLib conf) = fetchHtml $ conf ^. #url

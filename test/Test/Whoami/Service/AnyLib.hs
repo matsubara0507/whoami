@@ -29,12 +29,13 @@ lib1
    <: #type @= embedAssoc (#lib @= Library (#language @= "elixir" <: nil))
    <: nil
 
-test_anyPostToInfo :: IO [TestTree]
-test_anyPostToInfo = do
+{-# ANN test_anyLibToInfo ("HLint: ignore Use head" :: String) #-}
+test_anyLibToInfo :: IO [TestTree]
+test_anyLibToInfo = do
   (Right conf) <- decodeFileEither exampleConfigFile
-  sequence $
-    [ testCase "example lib0 to uniformed info" <$>
+  sequence
+    [ testCase "example lib0 to uniformed info" .
         (@?= Right lib0) <$> runServiceM conf (toInfo . AnyLib $ (conf ^. #library) !! 0)
-    , testCase "example lib1 to uniformed info" <$>
+    , testCase "example lib1 to uniformed info" .
         (@?= Right lib1) <$> runServiceM conf (toInfo . AnyLib $ (conf ^. #library) !! 1)
     ]

@@ -15,7 +15,7 @@ import           Whoami.Service.Internal.Scrape  (scrapeDate, scrapeTitle)
 import           Whoami.Service.Internal.Uniform (throwUniformError)
 import           Whoami.Service.Internal.Utils   (embedM, valid)
 
-data AnyPost = AnyPost PostConfig
+newtype AnyPost = AnyPost PostConfig
 
 instance Service AnyPost where
   fetch (AnyPost conf) = fetchHtml $ conf ^. #url
