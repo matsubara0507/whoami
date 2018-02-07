@@ -2,6 +2,7 @@ module Whoami
     ( module X
     ) where
 
+import           Whoami.Service.AnyLib      as X
 import           Whoami.Service.AnyPost     as X
 import           Whoami.Service.AnySite     as X
 import           Whoami.Service.Data.Class  as X

@@ -27,7 +27,7 @@ type ServiceType = Variant
 
 newtype Post = Post (Record '[ "date" >: Date ]) deriving (Show, Eq)
 data Application = Application deriving (Show, Eq)
-newtype Library = Library (Record '[ "langage" >: Text ]) deriving (Show, Eq)
+newtype Library = Library (Record '[ "language" >: Text ]) deriving (Show, Eq)
 data Site = Site deriving (Show, Eq)
 
 type Url = Text
