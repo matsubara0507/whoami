@@ -1,6 +1,7 @@
-{-# LANGUAGE DataKinds     #-}
-{-# LANGUAGE TypeFamilies  #-}
-{-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE DataKinds         #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE TypeOperators     #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 module Whoami.Service.Data.Class where
@@ -9,10 +10,14 @@ import           Data.Extensible
 import           Data.Extensible.Effect.Default (EitherDef, ReaderDef,
                                                  runReaderDef)
 import           Data.Extensible.Effect.Logger
+import           Data.Proxy                     (Proxy)
 import           Data.Text                      (Text)
 import           Network.HTTP.Req               (HttpException)
 import           Whoami.Service.Data.Config     (Config)
 import           Whoami.Service.Data.Info       (Info)
+
+class Service a where
+  genInfo :: Proxy a -> ServiceM [Info]
 
 class Uniform a where
   fetch :: a -> ServiceM Data
