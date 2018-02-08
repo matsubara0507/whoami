@@ -8,7 +8,7 @@ import           Control.Applicative            ((<|>))
 import           Control.Lens                   ((%~), (&), (^.))
 import           Data.Extensible
 import           Data.Maybe                     (fromMaybe)
-import           Whoami.Service.Data.Class      (Service (..))
+import           Whoami.Service.Data.Class      (Uniform (..))
 import           Whoami.Service.Data.Config     (AppConfig)
 import           Whoami.Service.Data.Info       (Application (..), ServiceType)
 import           Whoami.Service.Internal.Fetch  (fetchHtml)
@@ -16,7 +16,7 @@ import           Whoami.Service.Internal.Scrape (scrapeDesc)
 
 newtype AnyApp = AnyApp AppConfig
 
-instance Service AnyApp where
+instance Uniform AnyApp where
   fetch (AnyApp conf) = fetchHtml $ conf ^. #url
   fill (AnyApp conf) html =
     pure . AnyApp $ conf & #description %~ (<|> scrapeDesc html)

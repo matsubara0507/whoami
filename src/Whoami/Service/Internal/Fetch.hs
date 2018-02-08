@@ -16,7 +16,7 @@ import           Data.Text.Conversions      (UTF8 (..), decodeConvertText)
 import           Data.Text.Encoding         (encodeUtf8)
 import           Network.HTTP.Req
 import           Whoami.Service.Data.Class  (Data, ServiceM,
-                                             ServiseException (..))
+                                             UniformException (..))
 import           Whoami.Service.Data.Config (Config)
 import qualified Whoami.Service.Data.Info   as Whoami
 

@@ -7,7 +7,7 @@ module Whoami.Service.AnyPost where
 import           Control.Applicative             ((<|>))
 import           Control.Lens                    ((%~), (&), (^.))
 import           Data.Extensible
-import           Whoami.Service.Data.Class       (Service (..))
+import           Whoami.Service.Data.Class       (Uniform (..))
 import           Whoami.Service.Data.Config      (PostConfig)
 import           Whoami.Service.Data.Info        (Post (..), validDate)
 import           Whoami.Service.Internal.Fetch   (fetchHtml)
@@ -17,7 +17,7 @@ import           Whoami.Service.Internal.Utils   (embedM, valid)
 
 newtype AnyPost = AnyPost PostConfig
 
-instance Service AnyPost where
+instance Uniform AnyPost where
   fetch (AnyPost conf) = fetchHtml $ conf ^. #url
   fill (AnyPost conf) html = pure . AnyPost $
     conf & #title %~ (<|> scrapeTitle html) & #date %~ (<|> scrapeDate html)
