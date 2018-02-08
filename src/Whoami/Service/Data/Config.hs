@@ -46,4 +46,5 @@ type AppConfig = Record
 
 type QiitaConfig = Record
   '[ "posts" >: Maybe Bool
+   , "count" >: Maybe Int
    ]

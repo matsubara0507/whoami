@@ -31,20 +31,21 @@ type Data = Text
 
 type ServiceM = Eff
   '[ ReaderDef Config
-   , EitherDef UniformException
+   , EitherDef ServiceException
    , LoggerDef
    , "IO" >: IO
    ]
 
-data UniformException
+data ServiceException
   = FetchException (Either HttpException Text)
   | FillException Text
   | UniformException Text
+  | ServiceException Text
   deriving (Show, Eq)
 
 instance Eq HttpException where
   a == b = show a == show b
 
-runServiceM :: Config -> ServiceM a -> IO (Either UniformException a)
+runServiceM :: Config -> ServiceM a -> IO (Either ServiceException a)
 runServiceM config =
   retractEff . runLoggerDef . runEitherEff . flip runReaderDef config
