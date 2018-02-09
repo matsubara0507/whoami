@@ -11,13 +11,15 @@ import           Whoami.Service.Data.Info (Date, Url)
 
 type Config = Record
   '[ "name"    >: Text
-   , "account" >: Map Text Url
+   , "account" >: Accounts
    , "site"    >: [SiteConfig]
    , "post"    >: Record '[ "latest" >: Maybe Int, "posts" >: [PostConfig]]
    , "library" >: [LibConfig]
    , "app"     >: [AppConfig]
    , "qiita"   >: QiitaConfig
    ]
+
+type Accounts = Map Text Text
 
 type SiteConfig = Record
   '[ "name" >: Text
