@@ -2,7 +2,9 @@
 
 Generate my "who am i" using Haskell.
 
-## Usage on GHCi (example)
+## Usage
+
+### GHCi (example)
 
 ```
 $ stack ghci
@@ -13,4 +15,20 @@ $ stack ghci
 >> (Right txt) <- runServiceM conf $ toMarkdown =<< genInfo whoami
 >> T.putStrLn txt
 ...
+```
+
+### CLI
+
+cli usage
+
+```
+whoami [options] [input-file]
+  -o FILE               --output=FILE                Write output to FILE instead of stdout.
+  -t FORMAT, -w FORMAT  --to=FORMAT, --write=FORMAT  Specify output format. default is `markdown`.
+```
+
+e.g. 
+
+```
+$ stack exec -- whoami -o example/whoami.md example/whoami.yaml
 ```
