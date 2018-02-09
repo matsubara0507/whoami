@@ -10,8 +10,7 @@ $ stack ghci
 >> import Data.Yaml
 >> import Control.Lens ((^.))
 >> (Right conf) <- decodeFileEither "example/whoami.yaml" :: IO (Either ParseException Config)
->> runServiceM conf (toInfo . AnySite $ (conf ^. #site) !! 0)
-...
->> runServiceM conf (toInfo . AnyPost $ (conf ^. #post ^. #posts) !! 0)
+>> (Right txt) <- runServiceM conf $ toMarkdown =<< genInfo whoami
+>> T.putStrLn txt
 ...
 ```
