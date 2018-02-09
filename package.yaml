@@ -37,7 +37,7 @@ library:
   - scalpel-core
 
 executables:
-  whoami-exe:
+  whoami:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
