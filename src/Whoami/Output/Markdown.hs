@@ -6,7 +6,8 @@ module Whoami.Output.Markdown where
 import           Control.Lens         (view, (^.))
 import           Control.Monad.Reader (reader)
 import           Data.List            (sortBy)
-import           Data.Maybe           (fromMaybe)
+import qualified Data.Map             as Map
+import           Data.Maybe           (catMaybes, fromMaybe)
 import           Data.Text            (Text)
 import qualified Data.Text            as T
 import           Whoami.Service
@@ -15,14 +16,32 @@ type Markdown = Text
 
 toMarkdown :: [Info] -> ServiceM Markdown
 toMarkdown infos = T.unlines . concat <$> sequence
-  [ toMarkdownSites infos
-  , newline
-  , toMarkdownPosts infos
-  , newline
-  , toMarkdownApps infos
-  , newline
-  , toMarkdownLibs infos
-  ]
+    [ toMarkdownName
+    , toMarkdownAccount
+    , newline
+    , toMarkdownSites infos
+    , newline
+    , toMarkdownPosts infos
+    , newline
+    , toMarkdownApps infos
+    , newline
+    , toMarkdownLibs infos
+    ]
+
+toMarkdownName :: ServiceM [Markdown]
+toMarkdownName = do
+  name <- reader (view #name)
+  pure $ [ "# " `mappend` name ]
+
+toMarkdownAccount :: ServiceM [Markdown]
+toMarkdownAccount = do
+  account <- reader (view #account)
+  pure $ catMaybes
+    [ toLink "github" "https://github.com/" <$> Map.lookup "github" account
+    , toLink "qiita"  "https://qiita.com/"  <$> Map.lookup "qiita"  account
+    ]
+  where
+    toLink base service name = mconcat [ "- [", service, "](", base, name, ")" ]
 
 toMarkdownSites :: [Info] -> ServiceM [Markdown]
 toMarkdownSites infos =
