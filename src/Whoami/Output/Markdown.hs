@@ -26,22 +26,22 @@ toMarkdown infos = T.unlines . concat <$> sequence
 
 toMarkdownSites :: [Info] -> ServiceM [Markdown]
 toMarkdownSites infos =
-  pure $ concat (["## My Sites"] : (fmap toMarkdownInfo $ filter isSite infos))
+  pure $ concat (["## My Sites"] : fmap toMarkdownInfo (filter isSite infos))
 
 toMarkdownPosts :: [Info] -> ServiceM [Markdown]
 toMarkdownPosts infos = do
   let
     posts' = sortBy (\a b -> compare (getDate b) (getDate a)) $ filter isPost infos
   num <- fromMaybe (length posts) <$> reader (view #latest . view #post)
-  pure $ concat (["## My Posts"] : (fmap toMarkdownInfo $ take num posts'))
+  pure $ concat (["## My Posts"] : fmap toMarkdownInfo (take num posts'))
 
 toMarkdownApps :: [Info] -> ServiceM [Markdown]
 toMarkdownApps infos =
-  pure $ concat (["## Applications"] : (fmap toMarkdownInfo $ filter isApp infos))
+  pure $ concat (["## Applications"] : fmap toMarkdownInfo (filter isApp infos))
 
 toMarkdownLibs :: [Info] -> ServiceM [Markdown]
 toMarkdownLibs infos =
-  pure $ concat (["## Libraries"] : (fmap toMarkdownInfo $ filter isLib infos))
+  pure $ concat (["## Libraries"] : fmap toMarkdownInfo (filter isLib infos))
 
 toMarkdownInfo :: Info -> [Markdown]
 toMarkdownInfo info =

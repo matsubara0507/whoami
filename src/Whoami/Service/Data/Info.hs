@@ -51,7 +51,7 @@ isServiceType ::
     (RecordOf (Match Identity Bool) ServiceTypeFields) a (b5 -> Bool)
   -> ServiceType
   -> Bool
-isServiceType l = matchField $ (m & l .~ const True)
+isServiceType l = matchField (m & l .~ const True)
   where
     m = #post @= const False
      <: #app  @= const False
