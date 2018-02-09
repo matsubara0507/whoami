@@ -37,11 +37,11 @@ toMarkdownAccount :: ServiceM [Markdown]
 toMarkdownAccount = do
   account <- reader (view #account)
   pure $ catMaybes
-    [ toLink "github" "https://github.com/" <$> Map.lookup "github" account
-    , toLink "qiita"  "https://qiita.com/"  <$> Map.lookup "qiita"  account
+    [ toLink "GitHub" "https://github.com/" <$> Map.lookup "github" account
+    , toLink "Qiita"  "https://qiita.com/"  <$> Map.lookup "qiita"  account
     ]
   where
-    toLink base service name = mconcat [ "- [", service, "](", base, name, ")" ]
+    toLink service base name = mconcat [ "- [", service, "](", base, name, ")" ]
 
 toMarkdownSites :: [Info] -> ServiceM [Markdown]
 toMarkdownSites infos =
