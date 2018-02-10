@@ -64,9 +64,12 @@ toMarkdownLibs infos =
 
 toMarkdownInfo :: Info -> [Markdown]
 toMarkdownInfo info =
-  [ mconcat [ "- [", info ^. #name, "](", info ^. #url, ")"]
+  [ mconcat [ "- [", replaceVBar $ info ^. #name, "](", info ^. #url, ")"]
   , mconcat [ "    - ", info ^. #description ]
   ]
 
 newline :: Monad m => m [Markdown]
 newline = pure [""]
+
+replaceVBar :: Text -> Text
+replaceVBar = T.replace " | " "｜"
