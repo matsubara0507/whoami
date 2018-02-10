@@ -17,13 +17,12 @@ jobs:
     - stage: stack install whoami
       script: stack --no-terminal install whoami
     - stage: exec whoami
-      script: |
-        git config user.name "${GIT_NAME}"
-        git config user.email "${GIT_EMAIL}"
-        git clone "https://${GH_TOKEN}@github.com/matsubara0507/whoami.git"
-        cd whoami
-        stack exec -- whoami -o docs/whoami.md -t markdown docs/whoami.yaml
-        git status
-        git diff
-        git diff --quiet && git diff --staged --quiet || git commit -am "[skip ci] Update whoami"
-        git push origin master
+      script: git clone "https://${GH_TOKEN}@github.com/matsubara0507/whoami.git"
+      after_success:
+        - cd whoami
+        - stack exec -- whoami -o docs/whoami.md -t markdown docs/whoami.yaml
+        - git config user.name "${GIT_NAME}"
+        - git config user.email "${GIT_EMAIL}"
+        - git status
+        - git diff --quiet && git diff --staged --quiet || git commit -am "[skip ci] Update whoami"
+        - git push origin master
