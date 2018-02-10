@@ -1,0 +1,20 @@
+sudo: false
+language: generic
+cache:
+  timeout: 360
+  directories:
+  - "$HOME/.stack/"
+  - "$HOME/.local/bin/"
+  - ".stack-work/"
+install:
+- mkdir -p ~/.local/bin
+- export PATH=$HOME/.local/bin:$PATH
+- travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+jobs:
+  include:
+    - stage: install deprndences
+      script: stack --no-terminal build --only-dependencies
+    - stage: stack install whoami
+      script: stack --no-terminal install whoami
+    - stage: exec whoami
+      script: stack exec -- whoami -o docs/whoami.md -t markdown docs/whoami.yaml
