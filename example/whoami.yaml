@@ -21,7 +21,7 @@ library:
     url: http://hex.pm/packages/thank_you_stars
     language: elixir
 qiita:
-  posts: true
+  posts: false
 app:
   - name: AnaQRam
     url: http://github.com/matsubara0507/AnaQRam
