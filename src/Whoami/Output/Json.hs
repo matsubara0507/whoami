@@ -44,10 +44,10 @@ toJsonText infos = do
   pure . toText
      $ #name    @= conf ^. #name
     <: #account @= conf ^. #account
-    <: #site    @= shrink <$> filter isSite infos
-    <: #post    @= shrink <$> take num posts'
-    <: #library @= shrink <$> filter isLib  infos
-    <: #app     @= shrink <$> filter isApp  infos
+    <: #site    @= fmap shrink (filter isSite infos)
+    <: #post    @= fmap shrink (take num posts')
+    <: #library @= fmap shrink (filter isLib  infos)
+    <: #app     @= fmap shrink (filter isApp  infos)
     <: nil
 
 toText :: Infos -> Text

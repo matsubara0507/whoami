@@ -31,7 +31,7 @@ toMarkdown infos = T.unlines . concat <$> sequence
 toMarkdownName :: ServiceM [Markdown]
 toMarkdownName = do
   name <- reader (view #name)
-  pure $ [ "# " `mappend` name ]
+  pure [ "# " `mappend` name ]
 
 toMarkdownAccount :: ServiceM [Markdown]
 toMarkdownAccount = do
