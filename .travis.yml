@@ -24,5 +24,6 @@ jobs:
         cd whoami
         stack exec -- whoami -o docs/whoami.md -t markdown docs/whoami.yaml
         git status
+        git diff
         git diff --quiet && git diff --staged --quiet || git commit -am "[skip ci] Update whoami"
         git push origin master
