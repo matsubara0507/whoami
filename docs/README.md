@@ -15,7 +15,7 @@
     - posted on 2017-11-21
 - [GitHub Project に自動でカードのカラム遷移をする機能が追加された](https://qiita.com/matsubara0507/items/f384991b4854aa28745a)
     - posted on 2017-10-31
-- [Slack から特定のアカウントでツイートする Bot を作った | 群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2017/06/01/make-tweet-slack-bot)
+- [Slack から特定のアカウントでツイートする Bot を作った｜群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2017/06/01/make-tweet-slack-bot)
     - posted on 2017-06-01
 
 ## Applications
