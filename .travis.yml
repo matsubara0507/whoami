@@ -16,12 +16,10 @@ jobs:
       script: stack --no-terminal build --only-dependencies
     - stage: stack install whoami
       script: stack --no-terminal install whoami
-    - stage: git config
-      script:
-        - git config user.name "${GIT_NAME}"
-        - git config user.email "${GIT_EMAIL}"
     - stage: exec whoami
-      script:
-        - git clone "https://${GH_TOKEN}@github.com/matsubara0507/whoami.git"
-        - cd whoami
-        - stack exec -- whoami -o docs/whoami.md -t markdown docs/whoami.yaml
+      script: |
+        git config user.name "${GIT_NAME}"
+        git config user.email "${GIT_EMAIL}"
+        git clone "https://${GH_TOKEN}@github.com/matsubara0507/whoami.git"
+        cd whoami
+        stack exec -- whoami -o docs/whoami.md -t markdown docs/whoami.yaml
