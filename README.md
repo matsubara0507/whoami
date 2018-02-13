@@ -27,5 +27,9 @@
 ## Libraries
 - [chatwork](http://hackage.haskell.org/package/chatwork)
     - The ChatWork API in Haskell
+- [rakuten](http://hackage.haskell.org/package/rakuten)
+    - The Rakuten API in Haskell
+- [servant-kotlin](http://hackage.haskell.org/package/servant-kotlin)
+    - Automatically derive Kotlin class to query servant webservices
 - [thank_you_stars](http://hex.pm/packages/thank_you_stars)
     - A tool for starring GitHub repositories.
