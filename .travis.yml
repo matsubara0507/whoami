@@ -13,17 +13,20 @@ install:
 jobs:
   include:
     - stage: install deprndences
+      if: branch = master
       script: stack --no-terminal build --only-dependencies
     - stage: stack install whoami
+      if: branch = master
       script: stack --no-terminal install whoami
     - stage: exec whoami
-      script: git clone "https://${GH_TOKEN}@github.com/matsubara0507/whoami.git"
+      if: branch = master
+      script: git clone -b gh-pages "https://${GH_TOKEN}@github.com/matsubara0507/whoami.git"
       after_success:
         - cd whoami
-        - stack exec -- whoami -o docs/README.md -t markdown docs/whoami.yaml
+        - stack exec -- whoami -o README.md -t markdown whoami.yaml
         - git config user.name "${GIT_NAME}"
         - git config user.email "${GIT_EMAIL}"
         - git status
         - git add -A
         - git diff --quiet && git diff --staged --quiet || git commit -am "[skip ci] Update whoami"
-        - git push origin master
+        - git push origin gh-pages
