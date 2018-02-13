@@ -17,6 +17,14 @@ library:
     url: http://hackage.haskell.org/package/chatwork
     description: The ChatWork API in Haskell
     language: haskell
+  - name: rakuten
+    url: http://hackage.haskell.org/package/rakuten
+    description: The Rakuten API in Haskell
+    language: haskell
+  - name: servant-kotlin
+    url: http://hackage.haskell.org/package/servant-kotlin
+    description: Automatically derive Kotlin class to query servant webservices
+    language: haskell
   - name: thank_you_stars
     url: http://hex.pm/packages/thank_you_stars
     language: elixir
