@@ -5,7 +5,9 @@
 
 module Whoami.Service.Internal.Utils where
 
+import           Control.Monad.IO.Class (MonadIO (..))
 import           Data.Extensible
+import qualified Shelly                 as S
 
 embedM :: (Functor f, x ∈ xs) => Comp f h x -> f (h :| xs)
 embedM = fmap embed . getComp
@@ -15,3 +17,6 @@ embedAssocM = fmap embedAssoc . getComp
 
 valid :: (a -> Bool) -> a -> Maybe a
 valid p a = if p a then pure a else Nothing
+
+sleep :: MonadIO m => Int -> m ()
+sleep = S.shelly . S.sleep

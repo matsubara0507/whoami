@@ -31,10 +31,12 @@ library:
   - data-default
   - exceptions
   - megaparsec
+  - monad-logger
   - mtl
   - req
   - text-conversions
   - scalpel-core
+  - shelly
 
 executables:
   whoami:
