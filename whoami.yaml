@@ -37,3 +37,12 @@ app:
   - name: timeout-sesstype-cli
     url: http://github.com/matsubara0507/timeout-sesstype.hs
     description: 修論で定義した疑似言語のCLI
+  - name: scrapbook
+    url: https://github.com/matsubara0507/scrapbook
+    description: 複数の feed から新しい一つの feed を作る CLI
+  - name: Haskell Antenna
+    url: https://github.com/haskell-jp/antenna
+    description: Haskellに関する日本語情報の更新をまとめて表示するWebサイト
+  - name: dockwright
+    url: https://github.com/matsubara0507/dockwright
+    description: Dockerfile を他の情報をフェッチして構築するための CLI
