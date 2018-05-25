@@ -23,6 +23,12 @@
     - QRコードを利用したアナグラム(並び替えパズル)
 - [timeout-sesstype-cli](http://github.com/matsubara0507/timeout-sesstype.hs)
     - 修論で定義した疑似言語のCLI
+- [scrapbook](https://github.com/matsubara0507/scrapbook)
+    - 複数の feed から新しい一つの feed を作る CLI
+- [Haskell Antenna](https://github.com/haskell-jp/antenna)
+    - Haskellに関する日本語情報の更新をまとめて表示するWebサイト
+- [dockwright](https://github.com/matsubara0507/dockwright)
+    - Dockerfile を他の情報をフェッチして構築するための CLI
 
 ## Libraries
 - [chatwork](http://hackage.haskell.org/package/chatwork)
