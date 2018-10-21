@@ -46,3 +46,6 @@ app:
   - name: dockwright
     url: https://github.com/matsubara0507/dockwright
     description: Dockerfile を他の情報をフェッチして構築するための CLI
+  - name: stack-tpls
+    url: https://github.com/matsubara0507/stack-tpls
+    description: Haskell Stack のテンプレートファイルのリストを表示する CLI ツール
