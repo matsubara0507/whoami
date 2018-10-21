@@ -29,6 +29,8 @@
     - Haskellに関する日本語情報の更新をまとめて表示するWebサイト
 - [dockwright](https://github.com/matsubara0507/dockwright)
     - Dockerfile を他の情報をフェッチして構築するための CLI
+- [stack-tpls](https://github.com/matsubara0507/stack-tpls)
+    - Haskell Stack のテンプレートファイルのリストを表示する CLI ツール
 
 ## Libraries
 - [chatwork](http://hackage.haskell.org/package/chatwork)
