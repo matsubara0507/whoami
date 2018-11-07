@@ -49,3 +49,6 @@ app:
   - name: stack-tpls
     url: https://github.com/matsubara0507/stack-tpls
     description: Haskell Stack のテンプレートファイルのリストを表示する CLI ツール
+  - name: mdium
+    url: https://github.com/matsubara0507/mdium
+    description: Markdown で書いた記事を Medium に送信する CLI ツール
