@@ -33,6 +33,10 @@
     - Haskell Stack のテンプレートファイルのリストを表示する CLI ツール
 - [mdium](https://github.com/matsubara0507/mdium)
     - Markdown で書いた記事を Medium に送信する CLI ツール
+- [yaml-to-dhall](https://github.com/matsubara0507/yaml-to-dhall)
+    - YAML から Dhall へ雑に変換する CLI ツール
+- [dhall-ex](https://github.com/matsubara0507/dhall-ex)
+    - Dhall のビルド結果を複数のリポジトリへコミットなどする CLI ツール
 
 ## Libraries
 - [chatwork](http://hackage.haskell.org/package/chatwork)
