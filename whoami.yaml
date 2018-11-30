@@ -52,3 +52,9 @@ app:
   - name: mdium
     url: https://github.com/matsubara0507/mdium
     description: Markdown で書いた記事を Medium に送信する CLI ツール
+  - name: yaml-to-dhall
+    url: https://github.com/matsubara0507/yaml-to-dhall
+    description: YAML から Dhall へ雑に変換する CLI ツール
+  - name: dhall-ex
+    url: https://github.com/matsubara0507/dhall-ex
+    description: Dhall のビルド結果を複数のリポジトリへコミットなどする CLI ツール
