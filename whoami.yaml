@@ -28,6 +28,9 @@ library:
   - name: thank_you_stars
     url: http://hex.pm/packages/thank_you_stars
     language: elixir
+  - name: drone-haskell
+    url: https://github.com/matsubara0507/drone-haskell
+    language: haskell
 qiita:
   posts: true
 app:
@@ -58,3 +61,6 @@ app:
   - name: dhall-ex
     url: https://github.com/matsubara0507/dhall-ex
     description: Dhall のビルド結果を複数のリポジトリへコミットなどする CLI ツール
+  - name: drone-git-with-ssh
+    url: https://github.com/matsubara0507/drone-git-with-ssh
+    description: ssh で git を利用するための Drone Plugin
