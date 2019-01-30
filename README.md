@@ -37,6 +37,8 @@
     - YAML から Dhall へ雑に変換する CLI ツール
 - [dhall-ex](https://github.com/matsubara0507/dhall-ex)
     - Dhall のビルド結果を複数のリポジトリへコミットなどする CLI ツール
+- [drone-git-with-ssh](https://github.com/matsubara0507/drone-git-with-ssh)
+    - ssh で git を利用するための Drone Plugin
 
 ## Libraries
 - [chatwork](http://hackage.haskell.org/package/chatwork)
@@ -47,3 +49,5 @@
     - Automatically derive Kotlin class to query servant webservices
 - [thank_you_stars](http://hex.pm/packages/thank_you_stars)
     - A tool for starring GitHub repositories.
+- [drone-haskell](https://github.com/matsubara0507/drone-haskell)
+    - Haskell client for the Drone API. Contribute to matsubara0507/drone-haskell development by creating an account on GitHub.
