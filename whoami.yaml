@@ -9,6 +9,12 @@ site:
 post:
   latest: 10
   posts:
+    - url: http://haskell.jp/blog/posts/2019/hourly-antenna.html
+      data: 2019-01-25
+    - url: http://iggg.github.io/2018/12/22/replace-iggg-org/
+    - url: http://iggg.github.io/2018/12/15/update-circleci-2/
+    - url: http://haskell.jp/blog/posts/2018/renew-haskell-antenna.html
+      data: 2018-03-21
     - url: http://haskell.jp/blog/posts/2017/advent-calendar-2017.html
       date: 2017-12-31
     - url: http://iggg.github.io/2017/06/01/make-tweet-slack-bot
@@ -28,8 +34,11 @@ library:
   - name: thank_you_stars
     url: http://hex.pm/packages/thank_you_stars
     language: elixir
-  - name: drone-haskell
-    url: https://github.com/matsubara0507/drone-haskell
+  - name: drone
+    url: http://hackage.haskell.org/package/drone
+    language: haskell
+  - name: mix
+    url: https://github.com/matsubara0507/mix.hs
     language: haskell
 qiita:
   posts: true
@@ -64,3 +73,25 @@ app:
   - name: drone-git-with-ssh
     url: https://github.com/matsubara0507/drone-git-with-ssh
     description: ssh で git を利用するための Drone Plugin
+  - name: lifegame
+    url: https://github.com/matsubara0507/lifegame
+    description: よくあるライフゲーム SPA
+  - name: visualize-activity
+    url: https://github.com/matsubara0507/visualize-activity
+    description: JSON 形式のアクティビティ情報をそれっぽく棒グラフにする SPA
+  - name: drone-slack-notify-log
+    url: https://github.com/matsubara0507/drone-slack-notify-log
+    description: Drone のビルドログを slack に通知する Drone Plugin
+  - name: git-plantation
+    url: https://github.com/matsubara0507/git-plantation
+    description: mixi git challenge の新しい採点システム
+  - name: github-card
+    url: https://github.com/matsubara0507/github-card
+    description: 任意の GitHub アカウントやリポジトリの情報をカードとして表示する SPA
+  - name: selfcat
+    url: https://github.com/matsubara0507/selfcat
+    description: 指定した GitHub アカウントやリポジトリの情報を JSON にして吐き出す CLI ツール
+  - name: my-github-card
+    url: https://github.com/matsubara0507/my-github-cards
+    description: 自分の GitHub アカウント・リポジトリの情報をカードとして表示する SPA
+  
