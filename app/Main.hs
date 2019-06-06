@@ -5,17 +5,16 @@
 
 module Main where
 
-import           Control.Lens                    ((^.))
+import           Control.Lens           ((^.))
 import           Data.Extensible
 import           Data.Extensible.GetOpt
-import           Data.Extensible.Instances.Aeson ()
-import           Data.Maybe                      (listToMaybe)
-import           Data.Text                       (Text, pack)
-import qualified Data.Text.Encoding              as T
-import qualified Data.Text.IO                    as T
-import           Data.Yaml                       (ParseException, decodeEither',
-                                                  decodeFileEither)
-import           System.IO                       (stderr)
+import           Data.Maybe             (listToMaybe)
+import           Data.Text              (Text, pack)
+import qualified Data.Text.Encoding     as T
+import qualified Data.Text.IO           as T
+import           Data.Yaml              (ParseException, decodeEither',
+                                         decodeFileEither)
+import           System.IO              (stderr)
 import           Whoami
 
 main :: IO ()

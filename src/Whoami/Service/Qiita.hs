@@ -5,24 +5,22 @@
 
 module Whoami.Service.Qiita where
 
-import           Control.Lens                    (view, (^.))
-import           Control.Monad                   ((<=<))
-import           Control.Monad.Error.Class       (throwError)
-import           Control.Monad.Reader            (reader)
-import           Data.Default                    (def)
+import           Control.Lens                  (view, (^.))
+import           Control.Monad                 ((<=<))
+import           Control.Monad.Error.Class     (throwError)
+import           Control.Monad.Reader          (reader)
+import           Data.Default                  (def)
 import           Data.Extensible
-import           Data.Extensible.Instances.Aeson ()
-import qualified Data.Map                        as Map
-import           Data.Maybe                      (fromMaybe)
-import           Data.Proxy                      (Proxy (..))
-import           Data.Text                       (Text)
-import qualified Data.Text                       as T
+import qualified Data.Map                      as Map
+import           Data.Maybe                    (fromMaybe)
+import           Data.Text                     (Text)
+import qualified Data.Text                     as T
 import           Network.HTTP.Req
-import           Whoami.Service.AnyPost          (AnyPost (..))
-import           Whoami.Service.Data.Class       (Service (..),
-                                                  ServiceException (..),
-                                                  ServiceM, Uniform (..))
-import           Whoami.Service.Internal.Fetch   (runReq', throwFetchError)
+import           Whoami.Service.AnyPost        (AnyPost (..))
+import           Whoami.Service.Data.Class     (Service (..),
+                                                ServiceException (..), ServiceM,
+                                                Uniform (..))
+import           Whoami.Service.Internal.Fetch (runReq', throwFetchError)
 
 type QiitaPost = Record
   '[ "title" >: Text

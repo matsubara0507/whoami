@@ -1,16 +1,19 @@
-{-# LANGUAGE DataKinds         #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE TypeOperators     #-}
+{-# LANGUAGE DataKinds            #-}
+{-# LANGUAGE FlexibleContexts     #-}
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE TypeFamilies         #-}
+{-# LANGUAGE TypeOperators        #-}
+{-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 module Whoami.Service.Data.Class where
 
+import           Control.Monad.IO.Class
+import           Control.Monad.Logger
+import           Data.Extensible
 import           Data.Extensible
 import           Data.Extensible.Effect.Default (EitherDef, ReaderDef,
                                                  runReaderDef)
-import           Data.Extensible.Effect.Logger
-import           Data.Proxy                     (Proxy)
 import           Data.Text                      (Text)
 import           Network.HTTP.Req               (HttpException)
 import           Whoami.Service.Data.Config     (Config)
@@ -49,3 +52,15 @@ instance Eq HttpException where
 runServiceM :: Config -> ServiceM a -> IO (Either ServiceException a)
 runServiceM config =
   retractEff . runLoggerDef . runEitherEff . flip runReaderDef config
+
+-- Orphans
+
+type Logging = LoggingT IO
+type LoggerDef = "Logger" >: Logging
+
+runLoggerDef :: (MonadIO (Eff xs)) => Eff (LoggerDef ': xs) a -> Eff xs a
+runLoggerDef = peelEff0 pure $ \m k -> k =<< liftIO (runStdoutLoggingT m)
+
+instance (Associate "Logger" Logging xs) => MonadLogger (Eff xs) where
+  monadLoggerLog loc ls level msg =
+    liftEff (Proxy :: Proxy "Logger") $ monadLoggerLog loc ls level msg
