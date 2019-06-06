@@ -18,8 +18,8 @@ jobs:
       script: stack --no-terminal build --only-dependencies
     - stage: build dependencies for test
       script: stack --no-terminal test --only-dependencies
-      after_success: stack install tasty-discover
     - stage: run test
+      before_script: stack install tasty-discover
       script: stack --no-terminal test --no-run-benchmarks --no-haddock-deps --pedantic
     - stage: exec whoami
       if: branch = master AND type = push
