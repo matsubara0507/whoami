@@ -4,3 +4,9 @@ packages:
 extra-deps:
 - extensible-0.5.1
 - membership-0
+- req-2.0.1
+- retry-0.8.0.1
+- github: matsubara0507/mix.hs
+  commit: 45a0033b4b479a4e95687a6ceb3381dfc5e91d8d
+  subdirs:
+  - mix

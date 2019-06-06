@@ -4,7 +4,8 @@ module Whoami.Service
   , whoami
   ) where
 
-import           Data.Proxy                 (Proxy (..))
+import           RIO
+
 import           Whoami.Service.AnyApp      as X
 import           Whoami.Service.AnyLib      as X
 import           Whoami.Service.AnyPost     as X

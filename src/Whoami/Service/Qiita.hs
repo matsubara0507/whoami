@@ -5,16 +5,11 @@
 
 module Whoami.Service.Qiita where
 
-import           Control.Lens                  (view, (^.))
-import           Control.Monad                 ((<=<))
-import           Control.Monad.Error.Class     (throwError)
-import           Control.Monad.Reader          (reader)
-import           Data.Default                  (def)
+import           RIO
+import qualified RIO.Map                       as Map
+import qualified RIO.Text                      as Text
+
 import           Data.Extensible
-import qualified Data.Map                      as Map
-import           Data.Maybe                    (fromMaybe)
-import           Data.Text                     (Text)
-import qualified Data.Text                     as T
 import           Network.HTTP.Req
 import           Whoami.Service.AnyPost        (AnyPost (..))
 import           Whoami.Service.Data.Class     (Service (..),
@@ -35,7 +30,7 @@ qiita = Proxy
 
 instance Service Qiita where
   genInfo _ = do
-    conf <- reader (view #qiita)
+    conf <- asks (view #qiita . view #config)
     if fromMaybe False (conf ^. #posts) then
       mapM (uniform <=< flip fill "" . toPost) =<< fetchQiitaPosts
     else
@@ -43,18 +38,18 @@ instance Service Qiita where
 
 fetchQiitaPosts :: ServiceM [QiitaPost]
 fetchQiitaPosts = do
-  account <- Map.lookup "qiita" <$> reader (view #account)
+  account <- Map.lookup "qiita" <$> asks (view #account . view #config)
   case account of
     Just name -> fetchQiitaPosts' name
-    Nothing   -> throwError $ ServiceException "qiita account is not defined"
+    Nothing   -> throwIO $ ServiceException "qiita account is not defined"
 
 fetchQiitaPosts' :: Text -> ServiceM [QiitaPost]
 fetchQiitaPosts' name = do
-  num <- fromMaybe 100 <$> reader (view #count . view #qiita)
+  num <- fromMaybe 100 <$> asks (view #count . view #qiita . view #config)
   let
     url = https "qiita.com" /: "api" /: "v2" /: "users" /: name /: "items"
     params = "per_page" =: num
-  result <- runReq' def $ req GET url NoReqBody jsonResponse params
+  result <- runReq' defaultHttpConfig $ req GET url NoReqBody jsonResponse params
   case result of
     Left err   -> throwFetchError (Left err)
     Right resp -> pure $ responseBody resp
@@ -63,5 +58,5 @@ toPost :: QiitaPost -> AnyPost
 toPost post = AnyPost
    $ #title @= Just (post ^. #title)
   <: #url   @= post ^. #url
-  <: #date  @= Just (T.take (T.length "yyyy-mm-dd") $ post ^. #updated_at)
+  <: #date  @= Just (Text.take (Text.length "yyyy-mm-dd") $ post ^. #updated_at)
   <: nil

@@ -1,23 +1,17 @@
-{-# LANGUAGE DataKinds            #-}
-{-# LANGUAGE FlexibleContexts     #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE TypeFamilies         #-}
-{-# LANGUAGE TypeOperators        #-}
-{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE DataKinds #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 module Whoami.Service.Data.Class where
 
-import           Control.Monad.IO.Class
-import           Control.Monad.Logger
+import           RIO                        hiding (Data)
+
 import           Data.Extensible
-import           Data.Extensible
-import           Data.Extensible.Effect.Default (EitherDef, ReaderDef,
-                                                 runReaderDef)
-import           Data.Text                      (Text)
-import           Network.HTTP.Req               (HttpException)
-import           Whoami.Service.Data.Config     (Config)
-import           Whoami.Service.Data.Info       (Info)
+import qualified Mix
+import qualified Mix.Plugin.Config          as MixConfig
+import qualified Mix.Plugin.Logger          as MixLogger
+import           Network.HTTP.Req           (HttpException)
+import           Whoami.Service.Data.Config (Config)
+import           Whoami.Service.Data.Info   (Info)
 
 class Service a where
   genInfo :: Proxy a -> ServiceM [Info]
@@ -32,11 +26,11 @@ toInfo conf = uniform =<< fill conf =<< fetch conf
 
 type Data = Text
 
-type ServiceM = Eff
-  '[ ReaderDef Config
-   , EitherDef ServiceException
-   , LoggerDef
-   , "IO" >: IO
+type ServiceM = RIO Env
+
+type Env = Record
+  '[ "config"  >: Config
+   , "logger"  >: LogFunc
    ]
 
 data ServiceException
@@ -44,23 +38,15 @@ data ServiceException
   | FillException Text
   | UniformException Text
   | ServiceException Text
-  deriving (Show, Eq)
+  deriving (Typeable, Show)
 
-instance Eq HttpException where
-  a == b = show a == show b
+instance Exception ServiceException
 
 runServiceM :: Config -> ServiceM a -> IO (Either ServiceException a)
-runServiceM config =
-  retractEff . runLoggerDef . runEitherEff . flip runReaderDef config
-
--- Orphans
-
-type Logging = LoggingT IO
-type LoggerDef = "Logger" >: Logging
-
-runLoggerDef :: (MonadIO (Eff xs)) => Eff (LoggerDef ': xs) a -> Eff xs a
-runLoggerDef = peelEff0 pure $ \m k -> k =<< liftIO (runStdoutLoggingT m)
-
-instance (Associate "Logger" Logging xs) => MonadLogger (Eff xs) where
-  monadLoggerLog loc ls level msg =
-    liftEff (Proxy :: Proxy "Logger") $ monadLoggerLog loc ls level msg
+runServiceM config = try . Mix.run plugin
+  where
+    logConf = #handle @= stdout <: #verbose @= True <: nil
+    plugin = hsequence
+        $ #config <@=> MixConfig.buildPlugin config
+       <: #logger <@=> MixLogger.buildPlugin logConf
+       <: nil

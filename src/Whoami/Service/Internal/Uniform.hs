@@ -1,8 +1,8 @@
 module Whoami.Service.Internal.Uniform where
 
-import           Control.Monad.Error.Class (throwError)
-import           Data.Text                 (Text)
+import           RIO
+
 import           Whoami.Service.Data.Class (ServiceException (..), ServiceM)
 
 throwUniformError :: Text -> ServiceM a
-throwUniformError = throwError . UniformException
+throwUniformError = throwIO . UniformException

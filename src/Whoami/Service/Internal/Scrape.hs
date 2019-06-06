@@ -2,9 +2,9 @@
 
 module Whoami.Service.Internal.Scrape where
 
-import           Control.Applicative       ((<|>))
-import           Data.Text                 (Text)
-import qualified Data.Text                 as T
+import           RIO                       hiding (Data)
+import qualified RIO.Text                  as Text
+
 import           Text.HTML.Scalpel.Core
 import           Whoami.Service.Data.Class (Data)
 import           Whoami.Service.Data.Info  (Date)
@@ -22,7 +22,7 @@ titleScraper :: Scraper Data Text
 titleScraper = text "title"
 
 dateScraper :: Scraper Data Text
-dateScraper = T.take (T.length "yyyy-mm-dd") <$> attr "datetime" "time"
+dateScraper = Text.take (Text.length "yyyy-mm-dd") <$> attr "datetime" "time"
 
 descScraper :: Scraper Data Text
 descScraper =

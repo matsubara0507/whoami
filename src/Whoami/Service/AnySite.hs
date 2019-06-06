@@ -3,10 +3,9 @@
 
 module Whoami.Service.AnySite where
 
-import           Control.Lens                  (view, (^.))
-import           Control.Monad.Reader          (reader)
+import           RIO
+
 import           Data.Extensible
-import           Data.Proxy                    (Proxy (..))
 import           Whoami.Service.Data.Class     (Service (..), Uniform (..),
                                                 toInfo)
 import           Whoami.Service.Data.Config    (SiteConfig)
@@ -20,7 +19,7 @@ sites = Proxy
 
 instance Service AnySite where
   genInfo _ = do
-    confs <- reader (view #site)
+    confs <- asks (view #site . view #config)
     mapM (toInfo . AnySite) confs
 
 instance Uniform AnySite where

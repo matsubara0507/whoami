@@ -3,19 +3,18 @@
 
 module Whoami.Output.Markdown where
 
-import           Control.Lens         (view, (^.))
-import           Control.Monad.Reader (reader)
-import           Data.List            (sortBy)
-import qualified Data.Map             as Map
-import           Data.Maybe           (catMaybes, fromMaybe)
-import           Data.Text            (Text)
-import qualified Data.Text            as T
+import           RIO
+import qualified RIO.List         as L
+import qualified RIO.Map          as Map
+import qualified RIO.Text         as Text
+import qualified RIO.Text.Partial as Text
+
 import           Whoami.Service
 
 type Markdown = Text
 
 toMarkdown :: [Info] -> ServiceM Markdown
-toMarkdown infos = T.unlines . concat <$> sequence
+toMarkdown infos = Text.unlines . concat <$> sequence
     [ toMarkdownName
     , toMarkdownAccount
     , newline
@@ -30,12 +29,12 @@ toMarkdown infos = T.unlines . concat <$> sequence
 
 toMarkdownName :: ServiceM [Markdown]
 toMarkdownName = do
-  name <- reader (view #name)
+  name <- asks (view #name . view #config)
   pure [ "# " `mappend` name ]
 
 toMarkdownAccount :: ServiceM [Markdown]
 toMarkdownAccount = do
-  account <- reader (view #account)
+  account <- asks (view #account . view #config)
   pure $ catMaybes
     [ toLink "GitHub" "https://github.com/" <$> Map.lookup "github" account
     , toLink "Qiita"  "https://qiita.com/"  <$> Map.lookup "qiita"  account
@@ -49,10 +48,10 @@ toMarkdownSites infos =
 
 toMarkdownPosts :: [Info] -> ServiceM [Markdown]
 toMarkdownPosts infos = do
-  let
-    posts' = sortBy (\a b -> compare (getDate b) (getDate a)) $ filter isPost infos
-  num <- fromMaybe (length posts) <$> reader (view #latest . view #post)
+  num <- fromMaybe (length posts) <$> asks (view #latest . view #post . view #config)
   pure $ concat (["## My Posts"] : fmap toMarkdownInfo (take num posts'))
+  where
+    posts' = L.sortBy (\a b -> compare (getDate b) (getDate a)) $ filter isPost infos
 
 toMarkdownApps :: [Info] -> ServiceM [Markdown]
 toMarkdownApps infos =
@@ -72,4 +71,4 @@ newline :: Monad m => m [Markdown]
 newline = pure [""]
 
 replaceVBar :: Text -> Text
-replaceVBar = T.replace " | " "｜"
+replaceVBar = Text.replace " | " "｜"
