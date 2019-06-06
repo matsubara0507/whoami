@@ -8,12 +8,10 @@ Generate my "who am i" using Haskell.
 
 ```
 $ stack ghci
->> import Data.Extensible.Instances.Aeson
+>> import RIO
 >> import Data.Yaml
->> import Control.Lens ((^.))
 >> (Right conf) <- decodeFileEither "example/whoami.yaml" :: IO (Either ParseException Config)
 >> (Right txt) <- runServiceM conf $ toMarkdown =<< genInfo whoami
->> T.putStrLn txt
 ...
 ```
 
@@ -27,7 +25,7 @@ whoami [options] [input-file]
   -t FORMAT, -w FORMAT  --to=FORMAT, --write=FORMAT  Specify output format. default is `markdown`.
 ```
 
-e.g. 
+e.g.
 
 ```
 $ stack exec -- whoami -o example/whoami.md example/whoami.yaml
