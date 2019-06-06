@@ -1,6 +1,3 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE PolyKinds             #-}
-{-# LANGUAGE TypeOperators         #-}
 {-# OPTIONS_GHC -fno-warn-simplifiable-class-constraints #-}
 
 module Whoami.Service.Internal.Utils where

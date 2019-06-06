@@ -1,6 +1,3 @@
-{-# LANGUAGE OverloadedLabels  #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Whoami.Output.Markdown where
 
 import           RIO

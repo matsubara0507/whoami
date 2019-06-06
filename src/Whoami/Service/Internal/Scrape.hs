@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 module Whoami.Service.Internal.Scrape where
 
 import           RIO                       hiding (Data)

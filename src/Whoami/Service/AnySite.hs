@@ -1,6 +1,3 @@
-{-# LANGUAGE OverloadedLabels #-}
-{-# LANGUAGE TypeFamilies     #-}
-
 module Whoami.Service.AnySite where
 
 import           RIO

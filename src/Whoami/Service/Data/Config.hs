@@ -1,7 +1,3 @@
-{-# LANGUAGE DataKinds     #-}
-{-# LANGUAGE TypeFamilies  #-}
-{-# LANGUAGE TypeOperators #-}
-
 module Whoami.Service.Data.Config where
 
 import           RIO
