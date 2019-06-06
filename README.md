@@ -7,6 +7,14 @@
     - メモ書きブログ
 
 ## My Posts
+- [DroneでHaskell Antennaを毎時更新する - Haskell-jp](http://haskell.jp/blog/posts/2019/hourly-antenna.html)
+    - posted on 2019-01-25
+- [iggg.org を移行する｜群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2018/12/22/replace-iggg-org/)
+    - posted on 2018-12-21
+- [CircleCI の設定ファイルを 2.0 に更新｜群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2018/12/15/update-circleci-2/)
+    - posted on 2018-12-14
+- [Haskell Antenna をリニューアルしました - Haskell-jp](http://haskell.jp/blog/posts/2018/renew-haskell-antenna.html)
+    - posted on 2018-03-21
 - [Haskell Advent Calendar 2017 まとめ - Haskell-jp](http://haskell.jp/blog/posts/2017/advent-calendar-2017.html)
     - posted on 2017-12-31
 - [LINE の Echo Bot を Google Cloud Functions に作る](https://qiita.com/matsubara0507/items/04ab3c2197aa5f68e499)
@@ -39,6 +47,20 @@
     - Dhall のビルド結果を複数のリポジトリへコミットなどする CLI ツール
 - [drone-git-with-ssh](https://github.com/matsubara0507/drone-git-with-ssh)
     - ssh で git を利用するための Drone Plugin
+- [lifegame](https://github.com/matsubara0507/lifegame)
+    - よくあるライフゲーム SPA
+- [visualize-activity](https://github.com/matsubara0507/visualize-activity)
+    - JSON 形式のアクティビティ情報をそれっぽく棒グラフにする SPA
+- [drone-slack-notify-log](https://github.com/matsubara0507/drone-slack-notify-log)
+    - Drone のビルドログを slack に通知する Drone Plugin
+- [git-plantation](https://github.com/matsubara0507/git-plantation)
+    - mixi git challenge の新しい採点システム
+- [github-card](https://github.com/matsubara0507/github-card)
+    - 任意の GitHub アカウントやリポジトリの情報をカードとして表示する SPA
+- [selfcat](https://github.com/matsubara0507/selfcat)
+    - 指定した GitHub アカウントやリポジトリの情報を JSON にして吐き出す CLI ツール
+- [my-github-card](https://github.com/matsubara0507/my-github-cards)
+    - 自分の GitHub アカウント・リポジトリの情報をカードとして表示する SPA
 
 ## Libraries
 - [chatwork](http://hackage.haskell.org/package/chatwork)
@@ -49,5 +71,7 @@
     - Automatically derive Kotlin class to query servant webservices
 - [thank_you_stars](http://hex.pm/packages/thank_you_stars)
     - A tool for starring GitHub repositories.
-- [drone-haskell](https://github.com/matsubara0507/drone-haskell)
-    - Haskell client for the Drone API. Contribute to matsubara0507/drone-haskell development by creating an account on GitHub.
+- [drone](http://hackage.haskell.org/package/drone)
+    - Install via `cabal install drone`. 
+- [mix](https://github.com/matsubara0507/mix.hs)
+    - building rio package configuration using cont monad with extensible   - matsubara0507/mix.hs
