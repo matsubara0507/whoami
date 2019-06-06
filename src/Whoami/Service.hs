@@ -13,7 +13,8 @@ import           Whoami.Service.AnySite     as X
 import           Whoami.Service.Data.Class  as X
 import           Whoami.Service.Data.Config as X
 import           Whoami.Service.Data.Info   as X
-import           Whoami.Service.Qiita       as X
+import           Whoami.Service.Medium      as X (Medium, MediumPost, medium)
+import           Whoami.Service.Qiita       as X (Qiita, QiitaPost, qiita)
 
 data Whoami
 
@@ -27,4 +28,5 @@ instance Service Whoami where
     , genInfo libs
     , genInfo apps
     , genInfo qiita
+    , genInfo medium
     ]

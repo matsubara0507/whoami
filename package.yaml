@@ -54,6 +54,7 @@ library:
   - text-conversions
   - scalpel-core
   - shelly
+  - feed
 
 executables:
   whoami:

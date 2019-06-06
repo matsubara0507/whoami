@@ -13,6 +13,7 @@ type Config = Record
    , "library" >: [LibConfig]
    , "app"     >: [AppConfig]
    , "qiita"   >: QiitaConfig
+   , "medium"  >: MediumConfig
    ]
 
 type Accounts = Map Text Text
@@ -46,3 +47,5 @@ type QiitaConfig = Record
   '[ "posts" >: Maybe Bool
    , "count" >: Maybe Int
    ]
+
+type MediumConfig = QiitaConfig

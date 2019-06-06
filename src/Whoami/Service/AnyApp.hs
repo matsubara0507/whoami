@@ -10,7 +10,7 @@ import           Whoami.Service.Data.Info       (Application (..), ServiceType)
 import           Whoami.Service.Internal.Fetch  (fetchHtml)
 import           Whoami.Service.Internal.Scrape (scrapeDesc)
 
-newtype AnyApp = AnyApp AppConfig
+newtype AnyApp = AnyApp AppConfig deriving (Show)
 
 apps :: Proxy AnyApp
 apps = Proxy
