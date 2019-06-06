@@ -10,11 +10,11 @@ post:
   latest: 10
   posts:
     - url: http://haskell.jp/blog/posts/2019/hourly-antenna.html
-      data: 2019-01-25
+      date: 2019-01-25
     - url: http://iggg.github.io/2018/12/22/replace-iggg-org/
     - url: http://iggg.github.io/2018/12/15/update-circleci-2/
     - url: http://haskell.jp/blog/posts/2018/renew-haskell-antenna.html
-      data: 2018-03-21
+      date: 2018-03-21
     - url: http://haskell.jp/blog/posts/2017/advent-calendar-2017.html
       date: 2017-12-31
     - url: http://iggg.github.io/2017/06/01/make-tweet-slack-bot
@@ -94,4 +94,3 @@ app:
   - name: my-github-card
     url: https://github.com/matsubara0507/my-github-cards
     description: 自分の GitHub アカウント・リポジトリの情報をカードとして表示する SPA
-  
