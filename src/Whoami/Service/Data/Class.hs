@@ -37,7 +37,10 @@ data ServiceException
   | FillException Text
   | UniformException Text
   | ServiceException Text
-  deriving (Typeable, Show)
+  deriving (Typeable, Show, Eq)
+
+instance Eq HttpException where
+  a == b = show a == show b
 
 instance Exception ServiceException
 

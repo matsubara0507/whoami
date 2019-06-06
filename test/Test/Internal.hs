@@ -1,7 +1,6 @@
-{-# LANGUAGE OverloadedLabels  #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Test.Internal where
+
+import           RIO
 
 import           Data.Extensible
 import           Whoami

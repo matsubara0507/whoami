@@ -235,6 +235,7 @@ language_extensions:
 - OverloadedLabels
 - OverloadedStrings
 - PolyKinds
+- QuasiQuotes
 - RankNTypes
 - StandaloneDeriving
 - TypeFamilies

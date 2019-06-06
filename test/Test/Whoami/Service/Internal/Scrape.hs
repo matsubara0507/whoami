@@ -1,6 +1,6 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 module Test.Whoami.Service.Internal.Scrape where
+
+import           RIO                            hiding (Data)
 
 import           Test.Tasty
 import           Test.Tasty.HUnit
