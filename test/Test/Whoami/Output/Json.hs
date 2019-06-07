@@ -1,8 +1,7 @@
-{-# LANGUAGE QuasiQuotes #-}
-
 module Test.Whoami.Output.Json where
 
-import           Data.Text                 (Text, pack)
+import           RIO
+
 import           Data.Yaml
 import           Test.Internal
 import           Test.Tasty
@@ -12,7 +11,7 @@ import           Whoami.Output.Json        (toJsonText)
 import           Whoami.Service.Data.Class (runServiceM)
 
 exampleJson :: Text
-exampleJson = pack $
+exampleJson = fromString
   [str|{
       |    "library": [
       |        {

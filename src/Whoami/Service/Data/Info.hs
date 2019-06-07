@@ -1,22 +1,8 @@
-{-# LANGUAGE DataKinds             #-}
-{-# LANGUAGE FlexibleContexts      #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedLabels      #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE PolyKinds             #-}
-{-# LANGUAGE RankNTypes            #-}
-{-# LANGUAGE TypeFamilies          #-}
-{-# LANGUAGE TypeInType            #-}
-{-# LANGUAGE TypeOperators         #-}
-
 module Whoami.Service.Data.Info where
 
-import           Control.Lens         (view, (&), (.~), (^.))
-import           Control.Lens.Setter  (ASetter)
+import           RIO
+
 import           Data.Extensible
-import           Data.Kind
-import           Data.Maybe           (isJust)
-import           Data.Text            (Text, pack)
 import           Text.Megaparsec      (Parsec, count, parseMaybe)
 import           Text.Megaparsec.Char (char, digitChar)
 
@@ -51,7 +37,7 @@ isServiceType ::
     (RecordOf (Match Identity Bool) ServiceTypeFields) a (b5 -> Bool)
   -> ServiceType
   -> Bool
-isServiceType l = matchField (m & l .~ const True)
+isServiceType l = matchField (m & l `set` const True)
   where
     m = #post @= const False
      <: #app  @= const False
@@ -73,11 +59,11 @@ validDate = isJust . parseMaybe dateParser
 -- parse "yyyy-mm-dd"
 dateParser :: Parsec String Text Date
 dateParser = do
-  y <- pack <$> count 4 digitChar
+  y <- fromString <$> count 4 digitChar
   _ <- char '-'
-  m <- pack <$> count 2 digitChar
+  m <- fromString <$> count 2 digitChar
   _ <- char '-'
-  d <- pack <$> count 2 digitChar
+  d <- fromString <$> count 2 digitChar
   return $ mconcat [y, "-", m, "-", d]
 
 getDate :: Info -> Date

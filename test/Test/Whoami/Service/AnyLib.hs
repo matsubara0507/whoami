@@ -1,11 +1,8 @@
-{-# LANGUAGE OverloadedLabels  #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Test.Whoami.Service.AnyLib where
 
-import           Control.Lens                    ((^.))
-import           Control.Monad                   (sequence)
-import           Data.Extensible.Instances.Aeson ()
+import           RIO
+import           RIO.List.Partial ((!!))
+
 import           Data.Yaml
 import           Test.Internal
 import           Test.Tasty

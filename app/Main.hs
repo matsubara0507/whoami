@@ -1,21 +1,12 @@
-{-# LANGUAGE DataKinds         #-}
-{-# LANGUAGE OverloadedLabels  #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeOperators     #-}
-
 module Main where
 
-import           Control.Lens                    ((^.))
+import           RIO
+import qualified RIO.ByteString         as B
+
 import           Data.Extensible
 import           Data.Extensible.GetOpt
-import           Data.Extensible.Instances.Aeson ()
-import           Data.Maybe                      (listToMaybe)
-import           Data.Text                       (Text, pack)
-import qualified Data.Text.Encoding              as T
-import qualified Data.Text.IO                    as T
-import           Data.Yaml                       (ParseException, decodeEither',
-                                                  decodeFileEither)
-import           System.IO                       (stderr)
+import           Data.Yaml              (ParseException, decodeEither',
+                                         decodeFileEither)
 import           Whoami
 
 main :: IO ()
@@ -24,12 +15,12 @@ main = withGetOpt "[options] [input-file]" opts $ \r args -> do
     opts'= #input @= toInput args <: r
   config <- readInput opts'
   case config of
-    Left err  -> T.hPutStrLn stderr (pack $ show err)
+    Left err  -> hPutBuilder stderr (fromString $ show err <> "\n")
     Right conf -> do
       result <- run (opts' ^. #write) conf
       case result of
         Right txt -> writeOutput opts' txt
-        Left err  -> T.hPutStrLn stderr (pack $ show err)
+        Left err  -> hPutBuilder stderr (fromString $ show err <> "\n")
   where
     opts = #output @= outputOpt
         <: #write @= writeFormatOpt
@@ -65,13 +56,13 @@ readInput :: Options -> IO (Either ParseException Config)
 readInput opt =
   case opt ^. #input of
     Just path -> decodeFileEither path
-    Nothing   -> (decodeEither' . T.encodeUtf8) <$> T.getContents
+    Nothing   -> decodeEither' <$> B.getContents
 
 writeOutput :: Options -> Text -> IO ()
 writeOutput opts txt =
   case opts ^. #output of
-    Just path -> T.writeFile path txt
-    Nothing   -> T.putStrLn txt
+    Just path -> writeFileUtf8 path txt
+    Nothing   -> hPutBuilder stdout (getUtf8Builder $ display txt)
 
 run :: Format -> Config -> IO (Either ServiceException Text)
 run MDFormat conf   = runServiceM conf $ toMarkdown =<< genInfo whoami

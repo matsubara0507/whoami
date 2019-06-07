@@ -1,15 +1,8 @@
-{-# LANGUAGE OverloadedLabels  #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
-
 module Whoami.Service.AnyLib where
 
-import           Control.Applicative            ((<|>))
-import           Control.Lens                   (view, (%~), (&), (^.))
-import           Control.Monad.Reader           (reader)
+import           RIO
+
 import           Data.Extensible
-import           Data.Maybe                     (fromMaybe)
-import           Data.Proxy                     (Proxy (..))
 import           Whoami.Service.Data.Class      (Service (..), Uniform (..),
                                                  toInfo)
 import           Whoami.Service.Data.Config     (LibConfig)
@@ -24,13 +17,13 @@ libs = Proxy
 
 instance Service AnyLib where
   genInfo _ = do
-    confs <- reader (view #library)
+    confs <- asks (view #library . view #config)
     mapM (toInfo . AnyLib) confs
 
 instance Uniform AnyLib where
   fetch (AnyLib conf) = fetchHtml $ conf ^. #url
   fill (AnyLib conf) html =
-    pure . AnyLib $ conf & #description %~ (<|> scrapeDesc html)
+    pure . AnyLib $ conf & #description `over` (<|> scrapeDesc html)
   uniform (AnyLib conf) =
     pure (shrink $ #description @= desc <: #type @= libt <: conf)
     where

@@ -3,23 +3,26 @@ language: generic
 cache:
   timeout: 360
   directories:
-  - "$HOME/.stack/"
-  - "$HOME/.local/bin/"
-  - ".stack-work/"
+  - $HOME/.local/bin
+  - $HOME/.stack
+  - $TRAVIS_BUILD_DIR/.stack-work
 install:
 - mkdir -p ~/.local/bin
 - export PATH=$HOME/.local/bin:$PATH
 - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
 jobs:
   include:
-    - stage: install deprndences
-      if: branch = master
+    - stage: build cabal
+      script: stack --no-terminal --install-ghc build -j 1 Cabal
+    - stage: build dependencies
       script: stack --no-terminal build --only-dependencies
-    - stage: stack install whoami
-      if: branch = master
-      script: stack --no-terminal install whoami
+    - stage: build dependencies for test
+      script: stack --no-terminal test --only-dependencies
+    - stage: run test
+      before_script: stack install tasty-discover
+      script: stack --no-terminal test --no-run-benchmarks --no-haddock-deps --pedantic
     - stage: exec whoami
-      if: branch = master
+      if: branch = master AND type = push
       script: git clone -b gh-pages "https://${GH_TOKEN}@github.com/matsubara0507/whoami.git"
       after_success:
         - cd whoami

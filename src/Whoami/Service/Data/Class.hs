@@ -1,20 +1,16 @@
-{-# LANGUAGE DataKinds         #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE TypeFamilies      #-}
-{-# LANGUAGE TypeOperators     #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 module Whoami.Service.Data.Class where
 
+import           RIO                        hiding (Data)
+
 import           Data.Extensible
-import           Data.Extensible.Effect.Default (EitherDef, ReaderDef,
-                                                 runReaderDef)
-import           Data.Extensible.Effect.Logger
-import           Data.Proxy                     (Proxy)
-import           Data.Text                      (Text)
-import           Network.HTTP.Req               (HttpException)
-import           Whoami.Service.Data.Config     (Config)
-import           Whoami.Service.Data.Info       (Info)
+import qualified Mix
+import qualified Mix.Plugin.Config          as MixConfig
+import qualified Mix.Plugin.Logger          as MixLogger
+import           Network.HTTP.Req           (HttpException)
+import           Whoami.Service.Data.Config (Config)
+import           Whoami.Service.Data.Info   (Info)
 
 class Service a where
   genInfo :: Proxy a -> ServiceM [Info]
@@ -29,11 +25,11 @@ toInfo conf = uniform =<< fill conf =<< fetch conf
 
 type Data = Text
 
-type ServiceM = Eff
-  '[ ReaderDef Config
-   , EitherDef ServiceException
-   , LoggerDef
-   , "IO" >: IO
+type ServiceM = RIO Env
+
+type Env = Record
+  '[ "config"  >: Config
+   , "logger"  >: LogFunc
    ]
 
 data ServiceException
@@ -41,11 +37,18 @@ data ServiceException
   | FillException Text
   | UniformException Text
   | ServiceException Text
-  deriving (Show, Eq)
+  deriving (Typeable, Show, Eq)
 
 instance Eq HttpException where
   a == b = show a == show b
 
+instance Exception ServiceException
+
 runServiceM :: Config -> ServiceM a -> IO (Either ServiceException a)
-runServiceM config =
-  retractEff . runLoggerDef . runEitherEff . flip runReaderDef config
+runServiceM config = try . Mix.run plugin
+  where
+    logConf = #handle @= stdout <: #verbose @= True <: nil
+    plugin = hsequence
+        $ #config <@=> MixConfig.buildPlugin config
+       <: #logger <@=> MixLogger.buildPlugin logConf
+       <: nil

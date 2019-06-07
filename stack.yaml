@@ -1,6 +1,12 @@
-resolver: lts-10.4
+resolver: lts-13.21
 packages:
 - .
 extra-deps:
-- git: https://github.com/matsubara0507/extensible-instances.git
-  commit: a9b50cc3170c72ac0b6cacc4b3fc16cbbba0a7db
+- extensible-0.5.1
+- membership-0
+- req-2.0.1
+- retry-0.8.0.1
+- github: matsubara0507/mix.hs
+  commit: 45a0033b4b479a4e95687a6ceb3381dfc5e91d8d
+  subdirs:
+  - mix

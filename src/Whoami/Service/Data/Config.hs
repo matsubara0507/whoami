@@ -1,12 +1,8 @@
-{-# LANGUAGE DataKinds     #-}
-{-# LANGUAGE TypeFamilies  #-}
-{-# LANGUAGE TypeOperators #-}
-
 module Whoami.Service.Data.Config where
 
+import           RIO
+
 import           Data.Extensible
-import           Data.Map                 (Map)
-import           Data.Text                (Text)
 import           Whoami.Service.Data.Info (Date, Url)
 
 type Config = Record

@@ -1,14 +1,8 @@
-{-# LANGUAGE OverloadedLabels  #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
-
 module Whoami.Service.AnyPost where
 
-import           Control.Applicative             ((<|>))
-import           Control.Lens                    (view, (%~), (&), (^.))
-import           Control.Monad.Reader            (reader)
+import           RIO
+
 import           Data.Extensible
-import           Data.Proxy                      (Proxy (..))
 import           Whoami.Service.Data.Class       (Service (..), Uniform (..),
                                                   toInfo)
 import           Whoami.Service.Data.Config      (PostConfig)
@@ -25,13 +19,13 @@ posts = Proxy
 
 instance Service AnyPost where
   genInfo _ = do
-    confs <- reader (view #posts . view #post)
+    confs <- asks (view #posts . view #post . view #config)
     mapM (toInfo . AnyPost) confs
 
 instance Uniform AnyPost where
   fetch (AnyPost conf) = fetchHtml $ conf ^. #url
   fill (AnyPost conf) html = pure . AnyPost $
-    conf & #title %~ (<|> scrapeTitle html) & #date %~ (<|> scrapeDate html)
+    conf & #title `over` (<|> scrapeTitle html) & #date `over` (<|> scrapeDate html)
   uniform (AnyPost conf) = hsequence
       $ #name <@=> maybe (throwUniformError "no #title") pure (conf ^. #title)
      <: #url <@=> pure (conf ^. #url)

@@ -1,23 +1,16 @@
-{-# LANGUAGE DataKinds         #-}
-{-# LANGUAGE OverloadedLabels  #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeOperators     #-}
-
 module Whoami.Output.Json
   ( toJsonText
   , Infos
   , Info'
   ) where
 
-import           Control.Lens             ((^.))
-import           Control.Monad.Reader     (ask)
+import           RIO
+import qualified RIO.List                 as L
+
 import           Data.Aeson.Encode.Pretty (encodePretty)
 import           Data.Extensible
-import           Data.List                (sortBy)
-import           Data.Map                 (Map)
-import           Data.Maybe               (fromMaybe)
-import           Data.Text                (Text)
 import           Data.Text.Conversions    (UTF8 (..), decodeConvertText)
+import qualified Mix.Plugin.Config        as Mix
 import           Whoami.Service
 
 type Infos = Record
@@ -37,10 +30,9 @@ type Info' = Record
 
 toJsonText :: [Info] -> ServiceM Text
 toJsonText infos = do
-  conf <- ask
-  let
-    posts' = sortBy (\a b -> compare (getDate b) (getDate a)) $ filter isPost infos
-    num = fromMaybe (length posts) (conf ^. #post ^. #latest)
+  conf <- Mix.askConfig
+  let posts' = L.sortBy (\a b -> compare (getDate b) (getDate a)) $ filter isPost infos
+      num = fromMaybe (length posts) (conf ^. #post ^. #latest)
   pure . toText
      $ #name    @= conf ^. #name
     <: #account @= conf ^. #account

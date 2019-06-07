@@ -1,8 +1,7 @@
-{-# LANGUAGE QuasiQuotes #-}
-
 module Test.Whoami.Output.Markdown where
 
-import           Data.Text                 (pack)
+import           RIO
+
 import           Data.Yaml
 import           Test.Internal
 import           Test.Tasty
@@ -12,7 +11,7 @@ import           Whoami.Output.Markdown    (Markdown, toMarkdown)
 import           Whoami.Service.Data.Class (runServiceM)
 
 exampleMD :: Markdown
-exampleMD = pack $
+exampleMD = fromString
   [str|# MATSUBARA Nobutada
       |- [GitHub](https://github.com/matsubara0507)
       |- [Qiita](https://qiita.com/matsubara0507)
