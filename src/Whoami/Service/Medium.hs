@@ -67,10 +67,10 @@ toMediumPost post
 
 toPost :: MediumPost -> Maybe AnyPost
 toPost post = do
-  link <- post ^. #link
+  link' <- post ^. #link
   pure . AnyPost
       $ #title @= post ^. #title
-     <: #url   @= Text.takeWhile (/= '?') link
+     <: #url   @= Text.takeWhile (/= '?') link'
      <: #date  @= (formatDate =<< post ^. #pubDate)
      <: nil
 
