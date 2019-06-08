@@ -30,8 +30,10 @@ medium = Proxy
 instance Service Medium where
   genInfo _ = do
     conf <- asks (view #medium . view #config)
-    if fromMaybe False (conf ^. #posts) then
-      mapM (uniform <=< flip fill "" . toPost) =<< fetchMediumPosts
+    if fromMaybe False (conf ^. #posts) then do
+      let maxPostCnt = fromMaybe 10 $ conf ^. #count
+      posts <- map toPost <$> fetchMediumPosts
+      mapM (uniform <=< flip fill "") $ take maxPostCnt (catMaybes posts)
     else
       return []
 
@@ -63,12 +65,14 @@ toMediumPost post
    <: #link    @= Feed.rssItemLink post
    <: nil
 
-toPost :: MediumPost -> AnyPost
-toPost post = AnyPost
-    $ #title @= post ^. #title
-   <: #url   @= Text.takeWhile (/= '?') (fromMaybe "" $ post ^. #link)
-   <: #date  @= (formatDate =<< post ^. #pubDate)
-   <: nil
+toPost :: MediumPost -> Maybe AnyPost
+toPost post = do
+  link <- post ^. #link
+  pure . AnyPost
+      $ #title @= post ^. #title
+     <: #url   @= Text.takeWhile (/= '?') link
+     <: #date  @= (formatDate =<< post ^. #pubDate)
+     <: nil
 
 formatDate :: Text -> Maybe Text
 formatDate date =

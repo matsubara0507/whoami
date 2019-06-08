@@ -40,10 +40,9 @@ fetchQiitaPosts = do
 
 fetchQiitaPosts' :: Text -> ServiceM [QiitaPost]
 fetchQiitaPosts' name = do
-  num <- fromMaybe 100 <$> asks (view #count . view #qiita . view #config)
-  let
-    url = https "qiita.com" /: "api" /: "v2" /: "users" /: name /: "items"
-    params = "per_page" =: num
+  num <- fromMaybe 10 <$> asks (view #count . view #qiita . view #config)
+  let url = https "qiita.com" /: "api" /: "v2" /: "users" /: name /: "items"
+      params = "per_page" =: num
   result <- runReq' defaultHttpConfig $ req GET url NoReqBody jsonResponse params
   case result of
     Left err   -> throwFetchError (Left err)
