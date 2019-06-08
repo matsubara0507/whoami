@@ -5,4 +5,4 @@ import           RIO
 import           Whoami.Service.Data.Class (ServiceException (..), ServiceM)
 
 throwUniformError :: Text -> ServiceM a
-throwUniformError = throwIO . UniformException
+throwUniformError = throwM . UniformException

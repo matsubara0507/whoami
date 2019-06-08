@@ -36,7 +36,7 @@ fetchQiitaPosts = do
   account <- Map.lookup "qiita" <$> asks (view #account . view #config)
   case account of
     Just name -> fetchQiitaPosts' name
-    Nothing   -> throwIO $ ServiceException "qiita account is not defined"
+    Nothing   -> throwM $ ServiceException "qiita account is not defined"
 
 fetchQiitaPosts' :: Text -> ServiceM [QiitaPost]
 fetchQiitaPosts' name = do

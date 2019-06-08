@@ -40,7 +40,7 @@ fetchMediumPosts = do
   account <- Map.lookup "medium" <$> asks (view #account . view #config)
   case account of
     Just name -> fetchMediumPosts' name
-    Nothing   -> throwIO $ ServiceException "medium account is not defined"
+    Nothing   -> throwM $ ServiceException "medium account is not defined"
 
 fetchMediumPosts' :: Text -> ServiceM [MediumPost]
 fetchMediumPosts' name = do
