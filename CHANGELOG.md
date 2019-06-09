@@ -2,6 +2,8 @@
 
 ## Unreleased changes
 
+## 0.3.0.0
+
 - Feat: collect medium posts by user id
 - Refactor: remove dependent for shelly using threadDelay
 - Refactor: use throwM instead of throwIO
