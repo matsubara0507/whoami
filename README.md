@@ -1,30 +1,33 @@
 # MATSUBARA Nobutada
 - [GitHub](https://github.com/matsubara0507)
 - [Qiita](https://qiita.com/matsubara0507)
+- [Medium](https://medium.com/@nobutada)
 
 ## My Sites
 - [ひげメモ](http://matsubara0507.github.io)
     - メモ書きブログ
 
 ## My Posts
+- [ギッチャレの新しい採点システム その１](https://medium.com/mixi-developers/mgc-with-git-plantation-part1-7b9387059366)
+    - posted on 2019-05-30
+- [技術書典6にも出典します！](https://medium.com/mixi-developers/%E6%8A%80%E8%A1%93%E6%9B%B8%E5%85%B86%E3%81%AB%E3%82%82%E5%87%BA%E5%85%B8%E3%81%97%E3%81%BE%E3%81%99-85415d6ba804)
+    - posted on 2019-04-11
 - [DroneでHaskell Antennaを毎時更新する - Haskell-jp](http://haskell.jp/blog/posts/2019/hourly-antenna.html)
     - posted on 2019-01-25
 - [iggg.org を移行する｜群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2018/12/22/replace-iggg-org/)
     - posted on 2018-12-21
 - [CircleCI の設定ファイルを 2.0 に更新｜群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2018/12/15/update-circleci-2/)
     - posted on 2018-12-14
+- [git challenge 第10回に向けて+終えて](https://medium.com/mixi-developers/git-challenge-%E7%AC%AC10%E5%9B%9E%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6-%E7%B5%82%E3%81%88%E3%81%A6-575d02a6602)
+    - posted on 2018-11-30
+- [技術書典５に出典します！！](https://medium.com/mixi-developers/%E6%8A%80%E8%A1%93%E6%9B%B8%E5%85%B8%EF%BC%95%E3%81%AB%E5%87%BA%E5%85%B8%E3%81%97%E3%81%BE%E3%81%99-9cde1c8417e5)
+    - posted on 2018-10-01
 - [Haskell Antenna をリニューアルしました - Haskell-jp](http://haskell.jp/blog/posts/2018/renew-haskell-antenna.html)
     - posted on 2018-03-21
 - [Haskell Advent Calendar 2017 まとめ - Haskell-jp](http://haskell.jp/blog/posts/2017/advent-calendar-2017.html)
     - posted on 2017-12-31
 - [LINE の Echo Bot を Google Cloud Functions に作る](https://qiita.com/matsubara0507/items/04ab3c2197aa5f68e499)
     - posted on 2017-11-21
-- [GitHub にチャット機能のようなものが追加された (team discussions)](https://qiita.com/matsubara0507/items/47d2e2545553e415f969)
-    - posted on 2017-11-21
-- [GitHub Project に自動でカードのカラム遷移をする機能が追加された](https://qiita.com/matsubara0507/items/f384991b4854aa28745a)
-    - posted on 2017-10-31
-- [Slack から特定のアカウントでツイートする Bot を作った｜群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2017/06/01/make-tweet-slack-bot)
-    - posted on 2017-06-01
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
