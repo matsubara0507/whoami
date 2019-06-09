@@ -2,6 +2,7 @@ name: MATSUBARA Nobutada
 account:
   github: matsubara0507
   qiita: matsubara0507
+  medium: nobutada
 site:
   - name: ひげメモ
     url: http://matsubara0507.github.io
@@ -41,6 +42,8 @@ library:
     url: https://github.com/matsubara0507/mix.hs
     language: haskell
 qiita:
+  posts: true
+medium:
   posts: true
 app:
   - name: AnaQRam
