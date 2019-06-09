@@ -10,3 +10,7 @@ extra-deps:
   commit: 45a0033b4b479a4e95687a6ceb3381dfc5e91d8d
   subdirs:
   - mix
+
+docker:
+  repo: fpco/stack-build
+  enable: false
