@@ -44,7 +44,7 @@ get' url proxy =
         Nothing ->
           throwFetchError (Right $ "cannot parse url: " <> url)
   where
-    sleep' n = logInfo (display $ "fethed: " <> url) *> sleep n
+    sleep' n = logDebug (display $ "fethed: " <> url) *> sleep n
 
 
 runReq' :: (MonadIO m) => HttpConfig -> Req a -> m (Either HttpException a)
