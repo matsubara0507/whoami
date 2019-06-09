@@ -37,6 +37,7 @@ data ServiceException
   | FillException Text
   | UniformException Text
   | ServiceException Text
+  | ReadConfigException Text
   deriving (Typeable, Show, Eq)
 
 instance Eq HttpException where
