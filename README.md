@@ -1,5 +1,8 @@
 # whoami
 
+[![Build Status](https://travis-ci.org/matsubara0507/whoami.svg?branch=master)](https://travis-ci.org/matsubara0507/whoami)
+[![](https://images.microbadger.com/badges/image/matsubara0507/whoami.svg)](https://microbadger.com/images/matsubara0507/whoami "Get your own image badge on microbadger.com")
+
 Generate my "who am i" using Haskell.
 
 ## Usage
@@ -36,7 +39,7 @@ $ stack exec -- whoami -o example/whoami.md example/whoami.yaml
 if use docker image matsubara0507/whoami
 
 ```
-$ docker run --rm -it -v `pwd`/example:/root/work matsubara0507/whoami whoami -o whoami.md whoami.yaml
+$ docker push matsubara0507/whoami -o whoami.md whoami.yaml
 ```
 
 ## Dev
