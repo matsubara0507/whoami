@@ -68,5 +68,5 @@ test_toJsonText = do
   (Right conf) <- decodeFileEither exampleConfigFile
   sequence
     [ testCase "example to convert json" .
-        (@?= Right exampleJson) <$> runServiceM conf (toJsonText exampleInfos)
+        (@?= Right exampleJson) <$> runServiceM False conf (toJsonText exampleInfos)
     ]

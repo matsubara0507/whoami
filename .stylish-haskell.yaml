@@ -231,6 +231,7 @@ language_extensions:
 - DataKinds
 - FlexibleContexts
 - FlexibleInstances
+- LambdaCase
 - GeneralizedNewtypeDeriving
 - OverloadedLabels
 - OverloadedStrings
@@ -238,6 +239,7 @@ language_extensions:
 - QuasiQuotes
 - RankNTypes
 - StandaloneDeriving
+- TemplateHaskell
 - TypeFamilies
 - TypeOperators
 - TypeSynonymInstances

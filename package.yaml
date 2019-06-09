@@ -1,5 +1,5 @@
 name:                whoami
-version:             0.2.0.0
+version:             0.3.0.0
 github:              "matsubara0507/whoami"
 license:             MIT
 author:              "MATSUBARA Nobutada"
@@ -28,6 +28,7 @@ default-extensions:
 - FlexibleContexts
 - FlexibleInstances
 - GeneralizedNewtypeDeriving
+- LambdaCase
 - NumericUnderscores
 - OverloadedLabels
 - OverloadedStrings
@@ -35,6 +36,7 @@ default-extensions:
 - QuasiQuotes
 - RankNTypes
 - StandaloneDeriving
+- TemplateHaskell
 - TypeFamilies
 - TypeOperators
 - TypeSynonymInstances
@@ -62,6 +64,7 @@ executables:
     source-dirs:         app
     dependencies:
     - whoami
+    - gitrev
 
 tests:
   whoami-test:

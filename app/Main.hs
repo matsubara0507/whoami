@@ -1,35 +1,46 @@
 module Main where
 
+import           Paths_whoami           (version)
 import           RIO
 import qualified RIO.ByteString         as B
 
 import           Data.Extensible
 import           Data.Extensible.GetOpt
+import           Data.Version           (Version)
+import qualified Data.Version           as Version
 import           Data.Yaml              (ParseException, decodeEither',
                                          decodeFileEither)
+import           Development.GitRev
 import           Whoami
 
 main :: IO ()
-main = withGetOpt "[options] [input-file]" opts $ \r args -> do
-  let
-    opts'= #input @= toInput args <: r
-  config <- readInput opts'
-  case config of
-    Left err  -> hPutBuilder stderr (fromString $ show err <> "\n")
-    Right conf -> do
-      result <- run (opts' ^. #write) conf
-      case result of
-        Right txt -> writeOutput opts' txt
-        Left err  -> hPutBuilder stderr (fromString $ show err <> "\n")
+main = withGetOpt "[options] [input-file]" opts $ \r args ->
+  if r ^. #version then
+    B.putStr $ fromString (showVersion version) <> "\n"
+  else do
+    let opts' = #input @= toInput args <: r
+    runCmd opts' >>= \case
+      Left err  -> hPutBuilder stderr (fromString $ show err <> "\n")
+      Right txt -> writeOutput opts' txt
   where
-    opts = #output @= outputOpt
-        <: #write @= writeFormatOpt
+    runCmd opts' = readInput opts' >>= \case
+      Left err   -> pure $ Left (ReadConfigException $ tshow err)
+      Right conf -> runServiceM (opts' ^. #verbose) conf (actBy $ opts' ^. #write)
+    opts = #output  @= outputOpt
+        <: #write   @= writeFormatOpt
+        <: #verbose @= verboseOpt
+        <: #version @= versionOpt
         <: nil
+    actBy format = case format of
+      MDFormat   -> toMarkdown =<< genInfo whoami
+      JSONFormat -> toJsonText =<< genInfo whoami
 
 type Options = Record
-  '[ "input" >: Maybe FilePath
-   , "output" >: Maybe FilePath
-   , "write"  >: Format
+  '[ "input"   >: Maybe FilePath
+   , "output"  >: Maybe FilePath
+   , "write"   >: Format
+   , "verbose" >: Bool
+   , "version" >: Bool
    ]
 
 data Format
@@ -64,6 +75,17 @@ writeOutput opts txt =
     Just path -> writeFileUtf8 path txt
     Nothing   -> hPutBuilder stdout (getUtf8Builder $ display txt)
 
-run :: Format -> Config -> IO (Either ServiceException Text)
-run MDFormat conf   = runServiceM conf $ toMarkdown =<< genInfo whoami
-run JSONFormat conf = runServiceM conf $ toJsonText =<< genInfo whoami
+verboseOpt :: OptDescr' Bool
+verboseOpt = optFlag ['v'] ["verbose"] "Enable verbose mode: verbosity level \"debug\""
+
+versionOpt :: OptDescr' Bool
+versionOpt = optFlag [] ["version"] "Show version"
+
+showVersion :: Version -> String
+showVersion v = unwords
+  [ "Version"
+  , Version.showVersion v ++ ","
+  , "Git revision"
+  , $(gitHash)
+  , "(" ++ $(gitCommitCount) ++ " commits)"
+  ]

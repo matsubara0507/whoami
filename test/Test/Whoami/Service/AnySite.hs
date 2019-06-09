@@ -15,5 +15,5 @@ test_anySiteToInfo = do
   (Right conf) <- decodeFileEither exampleConfigFile
   sequence
     [ testCase "example site0 to uniformed info" .
-        (@?= Right site0) <$> runServiceM conf (toInfo . AnySite $ (conf ^. #site) !! 0)
+        (@?= Right site0) <$> runServiceM False conf (toInfo . AnySite $ (conf ^. #site) !! 0)
     ]

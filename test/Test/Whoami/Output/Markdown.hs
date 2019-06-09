@@ -44,5 +44,5 @@ test_toMarkdown = do
   (Right conf) <- decodeFileEither exampleConfigFile
   sequence
     [ testCase "example to convert markdown" .
-        (@?= Right exampleMD) <$> runServiceM conf (toMarkdown exampleInfos)
+        (@?= Right exampleMD) <$> runServiceM False conf (toMarkdown exampleInfos)
     ]

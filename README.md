@@ -23,6 +23,8 @@ cli usage
 whoami [options] [input-file]
   -o FILE               --output=FILE                Write output to FILE instead of stdout.
   -t FORMAT, -w FORMAT  --to=FORMAT, --write=FORMAT  Specify output format. default is `markdown`.
+  -v                    --verbose                    Enable verbose mode: verbosity level "debug"
+                        --version                    Show version
 ```
 
 e.g.

@@ -26,7 +26,7 @@ jobs:
       script: git clone -b gh-pages "https://${GH_TOKEN}@github.com/matsubara0507/whoami.git"
       after_success:
         - cd whoami
-        - stack exec -- whoami -o README.md -t markdown whoami.yaml
+        - stack exec -- whoami -v -o README.md -t markdown whoami.yaml
         - git config user.name "${GIT_NAME}"
         - git config user.email "${GIT_EMAIL}"
         - git status
