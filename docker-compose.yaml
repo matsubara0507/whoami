@@ -1,0 +1,11 @@
+version: "3"
+services:
+  build-image:
+    image: fpco/stack-build:lts-13.21
+    working_dir: /work
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - .:/work
+    - ~/.stack:/root/.stack
+    - ./.dump:/root/.local/bin
+    command: ./install.bash
