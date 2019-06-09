@@ -32,3 +32,18 @@ e.g.
 ```
 $ stack exec -- whoami -o example/whoami.md example/whoami.yaml
 ```
+
+if use docker image matsubara0507/whoami
+
+```
+$ docker run --rm -it -v `pwd`/example:/root/work matsubara0507/whoami whoami -o whoami.md whoami.yaml
+```
+
+## Dev
+
+### Build Docker Image
+
+```
+$ docker-compose up
+$ docker build -t matsubara0507/whoami .
+```
