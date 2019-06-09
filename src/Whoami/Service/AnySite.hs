@@ -9,7 +9,7 @@ import           Whoami.Service.Data.Config    (SiteConfig)
 import           Whoami.Service.Data.Info      (ServiceType, Site (..))
 import           Whoami.Service.Internal.Fetch (ping)
 
-newtype AnySite = AnySite SiteConfig
+newtype AnySite = AnySite SiteConfig deriving (Show)
 
 sites :: Proxy AnySite
 sites = Proxy

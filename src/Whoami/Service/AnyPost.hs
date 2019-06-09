@@ -12,7 +12,7 @@ import           Whoami.Service.Internal.Scrape  (scrapeDate, scrapeTitle)
 import           Whoami.Service.Internal.Uniform (throwUniformError)
 import           Whoami.Service.Internal.Utils   (embedM, valid)
 
-newtype AnyPost = AnyPost PostConfig
+newtype AnyPost = AnyPost PostConfig deriving (Show)
 
 posts :: Proxy AnyPost
 posts = Proxy

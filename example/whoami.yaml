@@ -22,6 +22,8 @@ library:
     language: elixir
 qiita:
   posts: false
+medium:
+  posts: false
 app:
   - name: AnaQRam
     url: https://github.com/matsubara0507/AnaQRam

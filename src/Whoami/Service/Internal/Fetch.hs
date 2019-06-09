@@ -51,4 +51,4 @@ runReq' :: (MonadIO m) => HttpConfig -> Req a -> m (Either HttpException a)
 runReq' conf = liftIO . try . runReq conf
 
 throwFetchError :: Either HttpException Text -> ServiceM a
-throwFetchError = throwIO . FetchException
+throwFetchError = throwM . FetchException

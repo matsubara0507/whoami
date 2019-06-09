@@ -22,7 +22,7 @@ jobs:
       before_script: stack install tasty-discover
       script: stack --no-terminal test --no-run-benchmarks --no-haddock-deps --pedantic
     - stage: exec whoami
-      if: branch = master AND type = push
+      if: branch = master AND (type = push OR type = cron)
       script: git clone -b gh-pages "https://${GH_TOKEN}@github.com/matsubara0507/whoami.git"
       after_success:
         - cd whoami

@@ -28,6 +28,7 @@ default-extensions:
 - FlexibleContexts
 - FlexibleInstances
 - GeneralizedNewtypeDeriving
+- NumericUnderscores
 - OverloadedLabels
 - OverloadedStrings
 - PolyKinds
@@ -53,7 +54,7 @@ library:
   - req >= 2.0.0
   - text-conversions
   - scalpel-core
-  - shelly
+  - feed
 
 executables:
   whoami:
