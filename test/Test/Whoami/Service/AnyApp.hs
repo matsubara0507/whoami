@@ -15,7 +15,7 @@ test_anyAppToInfo = do
   (Right conf) <- decodeFileEither exampleConfigFile
   sequence
     [ testCase "example app0 to uniformed info" .
-        (@?= Right app0) <$> runServiceM conf (toInfo . AnyApp $ (conf ^. #app) !! 0)
+        (@?= Right app0) <$> runServiceM False conf (toInfo . AnyApp $ (conf ^. #app) !! 0)
     , testCase "example app1 to uniformed info" .
-        (@?= Right app1) <$> runServiceM conf (toInfo . AnyApp $ (conf ^. #app) !! 1)
+        (@?= Right app1) <$> runServiceM False conf (toInfo . AnyApp $ (conf ^. #app) !! 1)
     ]

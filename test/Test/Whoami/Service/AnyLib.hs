@@ -15,7 +15,7 @@ test_anyLibToInfo = do
   (Right conf) <- decodeFileEither exampleConfigFile
   sequence
     [ testCase "example lib0 to uniformed info" .
-        (@?= Right lib0) <$> runServiceM conf (toInfo . AnyLib $ (conf ^. #library) !! 0)
+        (@?= Right lib0) <$> runServiceM False conf (toInfo . AnyLib $ (conf ^. #library) !! 0)
     , testCase "example lib1 to uniformed info" .
-        (@?= Right lib1) <$> runServiceM conf (toInfo . AnyLib $ (conf ^. #library) !! 1)
+        (@?= Right lib1) <$> runServiceM False conf (toInfo . AnyLib $ (conf ^. #library) !! 1)
     ]

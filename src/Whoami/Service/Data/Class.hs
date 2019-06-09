@@ -45,10 +45,10 @@ instance Eq HttpException where
 
 instance Exception ServiceException
 
-runServiceM :: Config -> ServiceM a -> IO (Either ServiceException a)
-runServiceM config = try . Mix.run plugin
+runServiceM :: Bool -> Config -> ServiceM a -> IO (Either ServiceException a)
+runServiceM verb config = try . Mix.run plugin
   where
-    logConf = #handle @= stdout <: #verbose @= True <: nil
+    logConf = #handle @= stdout <: #verbose @= verb <: nil
     plugin = hsequence
         $ #config <@=> MixConfig.buildPlugin config
        <: #logger <@=> MixLogger.buildPlugin logConf

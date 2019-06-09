@@ -25,16 +25,21 @@ main = withGetOpt "[options] [input-file]" opts $ \r args ->
   where
     runCmd opts' = readInput opts' >>= \case
       Left err   -> pure $ Left (ReadConfigException $ tshow err)
-      Right conf -> run (opts' ^. #write) conf
+      Right conf -> runServiceM (opts' ^. #verbose) conf (actBy $ opts' ^. #write)
     opts = #output  @= outputOpt
         <: #write   @= writeFormatOpt
+        <: #verbose @= verboseOpt
         <: #version @= versionOpt
         <: nil
+    actBy format = case format of
+      MDFormat   -> toMarkdown =<< genInfo whoami
+      JSONFormat -> toJsonText =<< genInfo whoami
 
 type Options = Record
   '[ "input"   >: Maybe FilePath
    , "output"  >: Maybe FilePath
    , "write"   >: Format
+   , "verbose" >: Bool
    , "version" >: Bool
    ]
 
@@ -70,9 +75,8 @@ writeOutput opts txt =
     Just path -> writeFileUtf8 path txt
     Nothing   -> hPutBuilder stdout (getUtf8Builder $ display txt)
 
-run :: Format -> Config -> IO (Either ServiceException Text)
-run MDFormat conf   = runServiceM conf $ toMarkdown =<< genInfo whoami
-run JSONFormat conf = runServiceM conf $ toJsonText =<< genInfo whoami
+verboseOpt :: OptDescr' Bool
+verboseOpt = optFlag ['v'] ["verbose"] "Enable verbose mode: verbosity level \"debug\""
 
 versionOpt :: OptDescr' Bool
 versionOpt = optFlag [] ["version"] "Show version"

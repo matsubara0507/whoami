@@ -15,7 +15,7 @@ test_anyPostToInfo = do
   (Right conf) <- decodeFileEither exampleConfigFile
   sequence
     [ testCase "example post0 to uniformed info" .
-        (@?= Right post0) <$> runServiceM conf (toInfo . AnyPost $ (conf ^. #post ^. #posts) !! 0)
+        (@?= Right post0) <$> runServiceM False conf (toInfo . AnyPost $ (conf ^. #post ^. #posts) !! 0)
     , testCase "example post1 to uniformed info" .
-        (@?= Right post1) <$> runServiceM conf (toInfo . AnyPost $ (conf ^. #post ^. #posts) !! 1)
+        (@?= Right post1) <$> runServiceM False conf (toInfo . AnyPost $ (conf ^. #post ^. #posts) !! 1)
     ]
