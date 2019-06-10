@@ -39,7 +39,7 @@ $ stack exec -- whoami -o example/whoami.md example/whoami.yaml
 if use docker image matsubara0507/whoami
 
 ```
-$ docker push matsubara0507/whoami -o whoami.md whoami.yaml
+$ docker run --rm -v `pwd`/example:/root/work matsubara0507/whoami -o whoami.md whoami.yaml
 ```
 
 ## Dev
@@ -47,6 +47,7 @@ $ docker push matsubara0507/whoami -o whoami.md whoami.yaml
 ### Build Docker Image
 
 ```
-$ docker-compose up
-$ docker build -t matsubara0507/whoami .
+$ stack --docker build -j 1 Cabal # if out of memory in docker
+$ stack --docker --local-bin-path=./bin install
+$ docker build -t matsubara0507/whoami . --build-arg local_bin_path=./bin
 ```
