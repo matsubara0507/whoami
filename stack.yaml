@@ -7,7 +7,7 @@ extra-deps:
 - req-2.0.1
 - retry-0.8.0.1
 - github: matsubara0507/mix.hs
-  commit: 45a0033b4b479a4e95687a6ceb3381dfc5e91d8d
+  commit: 2138a7a5a43443040893134f1170ce1643f0d498
   subdirs:
   - mix
 
