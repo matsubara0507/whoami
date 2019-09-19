@@ -23,11 +23,13 @@ $ stack ghci
 cli usage
 
 ```
+$ whoami --help
 whoami [options] [input-file]
   -o FILE               --output=FILE                Write output to FILE instead of stdout.
   -t FORMAT, -w FORMAT  --to=FORMAT, --write=FORMAT  Specify output format. default is `markdown`.
   -v                    --verbose                    Enable verbose mode: verbosity level "debug"
                         --version                    Show version
+  -h                    --help                       Show this help text
 ```
 
 e.g.

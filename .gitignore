@@ -21,4 +21,3 @@ cabal.project.local
 *.cabal
 .ghci
 bin/
-stack.yaml.lock

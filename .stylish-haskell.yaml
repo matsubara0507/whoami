@@ -232,6 +232,7 @@ language_extensions:
 - FlexibleContexts
 - FlexibleInstances
 - LambdaCase
+- MultiWayIf
 - GeneralizedNewtypeDeriving
 - OverloadedLabels
 - OverloadedStrings

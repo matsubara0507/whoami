@@ -1,10 +1,10 @@
-name:                whoami
-version:             0.3.0.0
-github:              "matsubara0507/whoami"
-license:             MIT
-author:              "MATSUBARA Nobutada"
-maintainer:          "t12307043@gunma-u.ac.jp"
-copyright:           "2018 MATSUBARA Nobutada"
+name: whoami
+version: 1.0.0
+github: "matsubara0507/whoami"
+license: MIT
+author: "MATSUBARA Nobutada"
+maintainer: "t12307043@gunma-u.ac.jp"
+copyright: "2018 MATSUBARA Nobutada"
 
 extra-source-files:
 - README.md
@@ -18,7 +18,7 @@ ghc-options:
 - -Wredundant-constraints
 - -optP-Wno-nonportable-include-path
 
-description:         Please see the README on Github at <https://github.com/matsubara0507/whoami#readme>
+description: Please see the README on Github at <https://github.com/matsubara0507/whoami#readme>
 
 default-extensions:
 - NoImplicitPrelude
@@ -29,6 +29,7 @@ default-extensions:
 - FlexibleInstances
 - GeneralizedNewtypeDeriving
 - LambdaCase
+- MultiWayIf
 - NumericUnderscores
 - OverloadedLabels
 - OverloadedStrings
@@ -43,7 +44,7 @@ default-extensions:
 
 dependencies:
 - base >= 4.7 && < 5
-- extensible
+- extensible >= 0.6
 - rio
 - mix
 - yaml
@@ -60,16 +61,16 @@ library:
 
 executables:
   whoami:
-    main:                Main.hs
-    source-dirs:         app
+    main: Main.hs
+    source-dirs: app
     dependencies:
     - whoami
-    - gitrev
+    - githash
 
 tests:
   whoami-test:
-    main:                Driver.hs
-    source-dirs:         test
+    main: Spec.hs
+    source-dirs: test
     dependencies:
     - heredoc
     - whoami

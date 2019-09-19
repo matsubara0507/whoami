@@ -2,8 +2,16 @@
 
 ## Unreleased changes
 
+## 1.0.0
+
 - Misc: update stack.yaml for stack-2.1.1
   - update mix.hs repository commit hash
+- Refactor: update lts to 14.6
+  - update deps package extensible to 0.6.1
+  - use githash instead of gitrev
+- Misc: change image to matsubara0507/stack-build for docker integrarion
+- Feat: `--help` options
+- Refactor: test spec to remove tasty-discover
 
 ## 0.3.0.0
 

@@ -33,7 +33,7 @@ isServiceType ::
   ( Repr h v7 ~ (b4 -> Bool), Repr h v6 ~ (b3 -> Bool)
   , Repr h v5 ~ (b2 -> Bool), Repr h v4 ~ (b1 -> Bool), Wrapper h) =>
   ASetter
-    (Field h :* '["post" ':> v5, "app" ':> v4, "lib" ':> v7, "site" ':> v6])
+    ('["post" ':> v5, "app" ':> v4, "lib" ':> v7, "site" ':> v6] :& Field h)
     (RecordOf (Match Identity Bool) ServiceTypeFields) a (b5 -> Bool)
   -> ServiceType
   -> Bool
