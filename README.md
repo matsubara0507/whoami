@@ -8,6 +8,8 @@
     - メモ書きブログ
 
 ## My Posts
+- [ミクシィは技術書典7にも出典します！](https://medium.com/mixi-developers/techbookfest7-960fa7786555)
+    - posted on 2019-09-18
 - [ギッチャレの新しい採点システム その１](https://medium.com/mixi-developers/mgc-with-git-plantation-part1-7b9387059366)
     - posted on 2019-05-30
 - [技術書典6にも出典します！](https://medium.com/mixi-developers/%E6%8A%80%E8%A1%93%E6%9B%B8%E5%85%B86%E3%81%AB%E3%82%82%E5%87%BA%E5%85%B8%E3%81%97%E3%81%BE%E3%81%99-85415d6ba804)
@@ -26,8 +28,6 @@
     - posted on 2018-03-21
 - [Haskell Advent Calendar 2017 まとめ - Haskell-jp](http://haskell.jp/blog/posts/2017/advent-calendar-2017.html)
     - posted on 2017-12-31
-- [LINE の Echo Bot を Google Cloud Functions に作る](https://qiita.com/matsubara0507/items/04ab3c2197aa5f68e499)
-    - posted on 2017-11-21
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
