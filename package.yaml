@@ -29,6 +29,7 @@ default-extensions:
 - FlexibleInstances
 - GeneralizedNewtypeDeriving
 - LambdaCase
+- MultiWayIf
 - NumericUnderscores
 - OverloadedLabels
 - OverloadedStrings
@@ -43,7 +44,7 @@ default-extensions:
 
 dependencies:
 - base >= 4.7 && < 5
-- extensible
+- extensible >= 0.6
 - rio
 - mix
 - yaml
@@ -60,16 +61,16 @@ library:
 
 executables:
   whoami:
-    main:                Main.hs
-    source-dirs:         app
+    main: Main.hs
+    source-dirs: app
     dependencies:
     - whoami
-    - gitrev
+    - githash
 
 tests:
   whoami-test:
-    main:                Driver.hs
-    source-dirs:         test
+    main: Spec.hs
+    source-dirs: test
     dependencies:
     - heredoc
     - whoami

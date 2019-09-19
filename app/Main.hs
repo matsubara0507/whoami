@@ -6,31 +6,33 @@ import qualified RIO.ByteString         as B
 
 import           Data.Extensible
 import           Data.Extensible.GetOpt
-import           Data.Version           (Version)
-import qualified Data.Version           as Version
 import           Data.Yaml              (ParseException, decodeEither',
                                          decodeFileEither)
-import           Development.GitRev
+import           GetOpt                 (withGetOpt')
+import qualified Version
 import           Whoami
 
 main :: IO ()
-main = withGetOpt "[options] [input-file]" opts $ \r args ->
-  if r ^. #version then
-    B.putStr $ fromString (showVersion version) <> "\n"
-  else do
-    let opts' = #input @= toInput args <: r
-    runCmd opts' >>= \case
+main = withGetOpt' "[options] [input-file]" opts $ \r args usage -> if
+  | r ^. #help    -> hPutBuilder stdout (fromString usage)
+  | r ^. #version -> hPutBuilder stdout (Version.build version <> "\n")
+  | otherwise     -> run (#input @= toInput args <: r)
+  where
+    run opts' = runCmd opts' >>= \case
       Left err  -> hPutBuilder stderr (fromString $ show err <> "\n")
       Right txt -> writeOutput opts' txt
-  where
+
     runCmd opts' = readInput opts' >>= \case
       Left err   -> pure $ Left (ReadConfigException $ tshow err)
       Right conf -> runServiceM (opts' ^. #verbose) conf (actBy $ opts' ^. #write)
+
     opts = #output  @= outputOpt
         <: #write   @= writeFormatOpt
         <: #verbose @= verboseOpt
         <: #version @= versionOpt
+        <: #help    @= helpOpt
         <: nil
+
     actBy format = case format of
       MDFormat   -> toMarkdown =<< genInfo whoami
       JSONFormat -> toJsonText =<< genInfo whoami
@@ -41,6 +43,7 @@ type Options = Record
    , "write"   >: Format
    , "verbose" >: Bool
    , "version" >: Bool
+   , "help"    >: Bool
    ]
 
 data Format
@@ -81,11 +84,5 @@ verboseOpt = optFlag ['v'] ["verbose"] "Enable verbose mode: verbosity level \"d
 versionOpt :: OptDescr' Bool
 versionOpt = optFlag [] ["version"] "Show version"
 
-showVersion :: Version -> String
-showVersion v = unwords
-  [ "Version"
-  , Version.showVersion v ++ ","
-  , "Git revision"
-  , $(gitHash)
-  , "(" ++ $(gitCommitCount) ++ " commits)"
-  ]
+helpOpt :: OptDescr' Bool
+helpOpt = optFlag ['h'] ["help"] "Show this help text"

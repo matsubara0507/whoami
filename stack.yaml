@@ -1,16 +1,16 @@
-resolver: lts-13.21
+resolver: lts-14.6
 packages:
 - .
 extra-deps:
-- extensible-0.5.1
+- extensible-0.6.1
 - membership-0
 - req-2.0.1
 - retry-0.8.0.1
 - github: matsubara0507/mix.hs
-  commit: 2138a7a5a43443040893134f1170ce1643f0d498
+  commit: 4978a33dec736799b30c14e215f7fa0f29fa2884
   subdirs:
   - mix
 
 docker:
-  repo: fpco/stack-build
+  repo: matsubara0507/stack-build
   enable: false
