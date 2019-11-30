@@ -8,6 +8,8 @@
     - メモ書きブログ
 
 ## My Posts
+- [ギッチャレの新しい採点システム その２](https://medium.com/mixi-developers/mgc-with-git-plantation-part2-7329ad46dd8f)
+    - posted on 2019-11-30
 - [mixi git challenge 第12回に向けてと終えて](https://medium.com/mixi-developers/mixi-git-challenge-12-4efc1fafe26e)
     - posted on 2019-10-29
 - [ミクシィは技術書典7にも出典します！](https://medium.com/mixi-developers/techbookfest7-960fa7786555)
@@ -26,8 +28,6 @@
     - posted on 2018-11-30
 - [技術書典５に出典します！！](https://medium.com/mixi-developers/%E6%8A%80%E8%A1%93%E6%9B%B8%E5%85%B8%EF%BC%95%E3%81%AB%E5%87%BA%E5%85%B8%E3%81%97%E3%81%BE%E3%81%99-9cde1c8417e5)
     - posted on 2018-10-01
-- [Haskell Antenna をリニューアルしました - Haskell-jp](http://haskell.jp/blog/posts/2018/renew-haskell-antenna.html)
-    - posted on 2018-03-21
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
