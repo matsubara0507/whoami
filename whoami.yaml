@@ -10,6 +10,9 @@ site:
 post:
   latest: 10
   posts:
+    - url: https://iggg.github.io/2019/11/03/tweet-by-gh-actions/
+    - url: https://iggg.github.io/2019/10/13/replase-iggg-org-2/
+    - url: https://iggg.github.io/2019/10/11/use-github-actions/
     - url: http://haskell.jp/blog/posts/2019/hourly-antenna.html
       date: 2019-01-25
     - url: http://iggg.github.io/2018/12/22/replace-iggg-org/
@@ -40,6 +43,12 @@ library:
     language: haskell
   - name: mix
     url: https://github.com/matsubara0507/mix.hs
+    language: haskell
+  - name: elmap
+    url: https://github.com/matsubara0507/elmap.hs
+    language: haskell
+  - name: fallible
+    url: https://github.com/matsubara0507/fallible
     language: haskell
 qiita:
   posts: true
@@ -97,3 +106,9 @@ app:
   - name: my-github-card
     url: https://github.com/matsubara0507/my-github-cards
     description: 自分の GitHub アカウント・リポジトリの情報をカードとして表示する SPA
+  - name: actions
+    url: https://github.com/matsubara0507/actions
+    description: 自作 Action (GitHub Actions)
+  - name: ELaMbda
+    url: https://github.com/matsubara0507/ELaMbda
+    description: Elm で TaPL にあるラムダ計算を実装
