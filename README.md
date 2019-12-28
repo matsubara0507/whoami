@@ -10,8 +10,14 @@
 ## My Posts
 - [ギッチャレの新しい採点システム その２](https://medium.com/mixi-developers/mgc-with-git-plantation-part2-7329ad46dd8f)
     - posted on 2019-11-30
+- [GitHub Actions でブログの更新をツイートする｜群馬大学電子計算機研究会 IGGG](https://iggg.github.io/2019/11/03/tweet-by-gh-actions/)
+    - posted on 2019-11-03
 - [mixi git challenge 第12回に向けてと終えて](https://medium.com/mixi-developers/mixi-git-challenge-12-4efc1fafe26e)
     - posted on 2019-10-29
+- [iggg.org を移行する その２｜群馬大学電子計算機研究会 IGGG](https://iggg.github.io/2019/10/13/replase-iggg-org-2/)
+    - posted on 2019-10-13
+- [GitHub Actions を使ってみた｜群馬大学電子計算機研究会 IGGG](https://iggg.github.io/2019/10/11/use-github-actions/)
+    - posted on 2019-10-10
 - [ミクシィは技術書典7にも出典します！](https://medium.com/mixi-developers/techbookfest7-960fa7786555)
     - posted on 2019-09-18
 - [ギッチャレの新しい採点システム その１](https://medium.com/mixi-developers/mgc-with-git-plantation-part1-7b9387059366)
@@ -22,12 +28,6 @@
     - posted on 2019-01-25
 - [iggg.org を移行する｜群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2018/12/22/replace-iggg-org/)
     - posted on 2018-12-21
-- [CircleCI の設定ファイルを 2.0 に更新｜群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2018/12/15/update-circleci-2/)
-    - posted on 2018-12-14
-- [git challenge 第10回に向けて+終えて](https://medium.com/mixi-developers/git-challenge-%E7%AC%AC10%E5%9B%9E%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6-%E7%B5%82%E3%81%88%E3%81%A6-575d02a6602)
-    - posted on 2018-11-30
-- [技術書典５に出典します！！](https://medium.com/mixi-developers/%E6%8A%80%E8%A1%93%E6%9B%B8%E5%85%B8%EF%BC%95%E3%81%AB%E5%87%BA%E5%85%B8%E3%81%97%E3%81%BE%E3%81%99-9cde1c8417e5)
-    - posted on 2018-10-01
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
@@ -64,6 +64,10 @@
     - 指定した GitHub アカウントやリポジトリの情報を JSON にして吐き出す CLI ツール
 - [my-github-card](https://github.com/matsubara0507/my-github-cards)
     - 自分の GitHub アカウント・リポジトリの情報をカードとして表示する SPA
+- [actions](https://github.com/matsubara0507/actions)
+    - 自作 Action (GitHub Actions)
+- [ELaMbda](https://github.com/matsubara0507/ELaMbda)
+    - Elm で TaPL にあるラムダ計算を実装
 
 ## Libraries
 - [chatwork](http://hackage.haskell.org/package/chatwork)
@@ -78,3 +82,7 @@
     - Install via `cabal install drone`. 
 - [mix](https://github.com/matsubara0507/mix.hs)
     - building rio package configuration using cont monad with extensible   - matsubara0507/mix.hs
+- [elmap](https://github.com/matsubara0507/elmap.hs)
+    - Mapping to Elm definitions from Haskell definitions. - matsubara0507/elmap.hs
+- [fallible](https://github.com/matsubara0507/fallible)
+    - interface for fallible data type like Maybe and Either. - matsubara0507/fallible
