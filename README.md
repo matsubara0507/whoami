@@ -8,6 +8,8 @@
     - メモ書きブログ
 
 ## My Posts
+- [ミクシィは「技術書典 応援祭」に出品しました！](https://medium.com/mixi-developers/techbookfest8-7c8010399a0a)
+    - posted on 2020-03-12
 - [ギッチャレの新しい採点システム その２](https://medium.com/mixi-developers/mgc-with-git-plantation-part2-7329ad46dd8f)
     - posted on 2019-11-30
 - [GitHub Actions でブログの更新をツイートする｜群馬大学電子計算機研究会 IGGG](https://iggg.github.io/2019/11/03/tweet-by-gh-actions/)
@@ -26,8 +28,6 @@
     - posted on 2019-04-11
 - [DroneでHaskell Antennaを毎時更新する - Haskell-jp](http://haskell.jp/blog/posts/2019/hourly-antenna.html)
     - posted on 2019-01-25
-- [iggg.org を移行する｜群馬大学電子計算機研究会 IGGG](http://iggg.github.io/2018/12/22/replace-iggg-org/)
-    - posted on 2018-12-21
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
