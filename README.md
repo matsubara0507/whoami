@@ -8,6 +8,8 @@
     - メモ書きブログ
 
 ## My Posts
+- [ミクシィは「技術書典9」に出品しました！](https://medium.com/mixi-developers/techbookfest9-327ad5f5d7e5)
+    - posted on 2020-09-11
 - [ミクシィは「技術書典 応援祭」に出品しました！](https://medium.com/mixi-developers/techbookfest8-7c8010399a0a)
     - posted on 2020-03-12
 - [ギッチャレの新しい採点システム その２](https://medium.com/mixi-developers/mgc-with-git-plantation-part2-7329ad46dd8f)
@@ -26,8 +28,6 @@
     - posted on 2019-05-30
 - [技術書典6にも出典します！](https://medium.com/mixi-developers/%E6%8A%80%E8%A1%93%E6%9B%B8%E5%85%B86%E3%81%AB%E3%82%82%E5%87%BA%E5%85%B8%E3%81%97%E3%81%BE%E3%81%99-85415d6ba804)
     - posted on 2019-04-11
-- [DroneでHaskell Antennaを毎時更新する - Haskell-jp](http://haskell.jp/blog/posts/2019/hourly-antenna.html)
-    - posted on 2019-01-25
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
