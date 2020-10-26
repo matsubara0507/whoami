@@ -8,6 +8,8 @@
     - メモ書きブログ
 
 ## My Posts
+- [モンスト用WebSocketサーバーにカナリアリリースを組み込む他2本](https://medium.com/mixi-developers/update-monst-ws-server-2020summer-6c495fda7784)
+    - posted on 2020-10-26
 - [ミクシィは「技術書典9」に出品しました！](https://medium.com/mixi-developers/techbookfest9-327ad5f5d7e5)
     - posted on 2020-09-11
 - [ミクシィは「技術書典 応援祭」に出品しました！](https://medium.com/mixi-developers/techbookfest8-7c8010399a0a)
@@ -26,8 +28,6 @@
     - posted on 2019-09-18
 - [ギッチャレの新しい採点システム その１](https://medium.com/mixi-developers/mgc-with-git-plantation-part1-7b9387059366)
     - posted on 2019-05-30
-- [技術書典6にも出典します！](https://medium.com/mixi-developers/%E6%8A%80%E8%A1%93%E6%9B%B8%E5%85%B86%E3%81%AB%E3%82%82%E5%87%BA%E5%85%B8%E3%81%97%E3%81%BE%E3%81%99-85415d6ba804)
-    - posted on 2019-04-11
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
