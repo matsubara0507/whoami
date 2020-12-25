@@ -8,6 +8,8 @@
     - メモ書きブログ
 
 ## My Posts
+- [ミクシィは「技術書典10」に出品します！](https://medium.com/mixi-developers/techbookfest10-227713d6b1b6)
+    - posted on 2020-12-25
 - [Bazel で複数の values.yaml のイメージタグを一括置換する](https://medium.com/mixi-developers/replace-values-yaml-with-bazel-977d0ceffc09)
     - posted on 2020-11-30
 - [モンスト用WebSocketサーバーにカナリアリリースを組み込む他2本](https://medium.com/mixi-developers/update-monst-ws-server-2020summer-6c495fda7784)
@@ -26,8 +28,6 @@
     - posted on 2019-10-13
 - [GitHub Actions を使ってみた｜群馬大学電子計算機研究会 IGGG](https://iggg.github.io/2019/10/11/use-github-actions/)
     - posted on 2019-10-10
-- [ミクシィは技術書典7にも出典します！](https://medium.com/mixi-developers/techbookfest7-960fa7786555)
-    - posted on 2019-09-18
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
