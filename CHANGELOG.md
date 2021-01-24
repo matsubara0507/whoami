@@ -2,6 +2,10 @@
 
 ## Unreleased changes
 
+- Misc: update LTS to 16.31
+- CI: change to GitHub Actions from TravisCI
+- Image: use GitHub Container Registry instead of Docker Hub
+
 ## 1.0.0
 
 - Misc: update stack.yaml for stack-2.1.1
