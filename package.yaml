@@ -54,7 +54,8 @@ library:
   dependencies:
   - aeson-pretty
   - megaparsec
-  - req >= 2.0.0
+  - req >= 3.0.0
+  - modern-uri
   - text-conversions
   - scalpel-core
   - feed

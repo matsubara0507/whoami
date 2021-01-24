@@ -5,6 +5,7 @@ import           RIO                           hiding (Data)
 import           Data.Text.Conversions         (UTF8 (..), decodeConvertText)
 import qualified Mix.Plugin.Config             as Mix
 import           Network.HTTP.Req
+import           Text.URI                      (mkURI)
 import           Whoami.Service.Data.Class     (Data, ServiceException (..),
                                                 ServiceM)
 import           Whoami.Service.Data.Config    (Config)
@@ -34,15 +35,13 @@ fetchHtml url = do
 get' :: HttpResponse resp =>
   Whoami.Url -> Proxy resp -> ServiceM (Either HttpException resp)
 get' url proxy =
-  case parseUrlHttp (encodeUtf8 url) of
-    Just (url', opts) ->
-      runReq' defaultHttpConfig (req GET url' NoReqBody proxy opts) <* sleep' 1
-    Nothing ->
-      case parseUrlHttps (encodeUtf8 url) of
-        Just (url', opts) ->
-          runReq' defaultHttpConfig (req GET url' NoReqBody proxy opts) <* sleep' 1
-        Nothing ->
-          throwFetchError (Right $ "cannot parse url: " <> url)
+  case useURI =<< mkURI url of
+     Just (Right (url', opts)) ->
+       runReq' defaultHttpConfig (req GET url' NoReqBody proxy opts) <* sleep' 1
+     Just (Left (url', opts)) ->
+       runReq' defaultHttpConfig (req GET url' NoReqBody proxy opts) <* sleep' 1
+     _ ->
+        throwFetchError (Right $ "cannot parse url: " <> url)
   where
     sleep' n = logDebug (display $ "fetched: " <> url) *> sleep n
 
