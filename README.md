@@ -1,7 +1,6 @@
 # whoami
 
-[![Build Status](https://travis-ci.org/matsubara0507/whoami.svg?branch=master)](https://travis-ci.org/matsubara0507/whoami)
-[![](https://images.microbadger.com/badges/image/matsubara0507/whoami.svg)](https://microbadger.com/images/matsubara0507/whoami "Get your own image badge on microbadger.com")
+![Build Application](https://github.com/matsubara0507/whoami/workflows/Build%20Application/badge.svg)
 
 Generate my "who am i" using Haskell.
 
@@ -51,5 +50,5 @@ $ docker run --rm -v `pwd`/example:/root/work matsubara0507/whoami -o whoami.md 
 ```
 $ stack --docker build -j 1 Cabal # if out of memory in docker
 $ stack --docker --local-bin-path=./bin install
-$ docker build -t matsubara0507/whoami . --build-arg local_bin_path=./bin
+$ docker build -t ghcr.io/matsubara0507/whoami . --build-arg local_bin_path=./bin
 ```

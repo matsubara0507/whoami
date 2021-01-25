@@ -5,12 +5,19 @@
 
 packages:
 - completed:
-    hackage: extensible-0.6.1@sha256:d73a5dc13bd00f44ace729f83ce868e81a45ea31c7453a6f8a4a9b5b0591d600,2860
+    hackage: extensible-0.8.1@sha256:280840e31d92510b342d6a8d82d7af39cfd250194f9c26fca1d5cd406ee206f6,2946
     pantry-tree:
-      size: 2354
-      sha256: 9fadd24af89df601f19d57893b513d1742a1942670d6d2e73e79fb4b7aabce65
+      size: 2097
+      sha256: 49d78392bc6da683fe08b01b7e513b5eb471df1b8157616ca4d9dad0a9a23d3d
   original:
-    hackage: extensible-0.6.1
+    hackage: extensible-0.8.1
+- completed:
+    hackage: incremental-0.3.1@sha256:9c697bae4f7e5ceb144bde13e03ca2f36b4bc2d0c92bbc02e0a604231ee279c2,1153
+    pantry-tree:
+      size: 370
+      sha256: fd5f40352dbf1602babd2c5db2a120c26e57bbd5ad30b19ce24d04189f6a18d1
+  original:
+    hackage: incremental-0.3.1
 - completed:
     hackage: membership-0@sha256:3a11d8fd53cb1a76bb9273e6c929bbf9d649f109714bf487abb3143be04ddc81,995
     pantry-tree:
@@ -19,38 +26,21 @@ packages:
   original:
     hackage: membership-0
 - completed:
-    hackage: req-2.0.1@sha256:76fb2a88279695d3c564064c1cb30a9c8d6a9e3bc9b9d1313ccdcdc7de301fbe,4979
-    pantry-tree:
-      size: 712
-      sha256: 226eb0bc123dcfc33b2eb83d78a97bc01af67843b30a307c9300c49295595050
-  original:
-    hackage: req-2.0.1
-- completed:
-    hackage: retry-0.8.0.1@sha256:149393f74ce7504e171d71046936e58841ccfa0e59a37809824b6d68c04a36e5,2207
-    pantry-tree:
-      size: 433
-      sha256: d0cfb99557baafa97f0c269c72fca810dd37d958e86056f345c24956f1e05977
-  original:
-    hackage: retry-0.8.0.1
-- completed:
-    size: 8280
+    size: 11913
     subdir: mix
-    url: https://github.com/matsubara0507/mix.hs/archive/4978a33dec736799b30c14e215f7fa0f29fa2884.tar.gz
-    cabal-file:
-      size: 1110
-      sha256: 946df4a87070784d7ea659f6a3ad2f346f8cf31fea1135fc342feb5a303fa147
+    url: https://github.com/matsubara0507/mix.hs/archive/75714be080db16f6a4f9d0a22e86947ffcdadc57.tar.gz
     name: mix
     version: 0.1.1
-    sha256: 200ad779113f600d351be1e696d419f4332073dfbe76e5a666b82e17cb7e16d5
+    sha256: c4aa501c544ab35a214e7b07f2f97fb19de644f48874c8d6838809bcf4d8edb9
     pantry-tree:
       size: 598
       sha256: 689bed307dc233a6c50e01f00295a079dc40a4291700646f3ca423d714ba35fc
   original:
     subdir: mix
-    url: https://github.com/matsubara0507/mix.hs/archive/4978a33dec736799b30c14e215f7fa0f29fa2884.tar.gz
+    url: https://github.com/matsubara0507/mix.hs/archive/75714be080db16f6a4f9d0a22e86947ffcdadc57.tar.gz
 snapshots:
 - completed:
-    size: 524127
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/14/6.yaml
-    sha256: dc70dfb45e2c32f54719819bd055f46855dd4b3bd2e58b9f3f38729a2d553fbb
-  original: lts-14.6
+    size: 563100
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/0.yaml
+    sha256: e93a85871577ea3423d5f3454b2b6bd37c2c2123c79faf511dfb64f5b49a9f8b
+  original: lts-17.0
