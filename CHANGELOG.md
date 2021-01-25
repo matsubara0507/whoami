@@ -2,7 +2,7 @@
 
 ## Unreleased changes
 
-- Misc: update LTS to 16.31
+- Misc: update LTS to 17.0
 - CI: change to GitHub Actions from TravisCI
 - Image: use GitHub Container Registry instead of Docker Hub
 
