@@ -8,6 +8,8 @@
     - メモ書きブログ
 
 ## My Posts
+- [Bazel で diagrams.py を実行する](https://medium.com/mixi-developers/build-diagrams-by-bazel-6eff8323d77d)
+    - posted on 2021-02-17
 - [ミクシィは「技術書典10」に出品します！](https://medium.com/mixi-developers/techbookfest10-227713d6b1b6)
     - posted on 2020-12-25
 - [Bazel で複数の values.yaml のイメージタグを一括置換する](https://medium.com/mixi-developers/replace-values-yaml-with-bazel-977d0ceffc09)
@@ -26,8 +28,6 @@
     - posted on 2019-10-29
 - [iggg.org を移行する その２｜群馬大学電子計算機研究会 IGGG](https://iggg.github.io/2019/10/13/replase-iggg-org-2/)
     - posted on 2019-10-13
-- [GitHub Actions を使ってみた｜群馬大学電子計算機研究会 IGGG](https://iggg.github.io/2019/10/11/use-github-actions/)
-    - posted on 2019-10-10
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
