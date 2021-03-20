@@ -8,6 +8,8 @@
     - メモ書きブログ
 
 ## My Posts
+- [GitHubに記述したMarkdownをSlackのMarkdownにGoで変換して通知する](https://medium.com/mixi-developers/html-to-mrkdwn-with-go-c205d6d55186)
+    - posted on 2021-03-19
 - [モンストサーバーのプロファイル結果を共有するページを作る](https://medium.com/mixi-developers/monst-profile-view-page-261ed633015a)
     - posted on 2021-03-10
 - [Bazel で diagrams.py を実行する](https://medium.com/mixi-developers/build-diagrams-by-bazel-6eff8323d77d)
@@ -26,8 +28,6 @@
     - posted on 2019-11-30
 - [GitHub Actions でブログの更新をツイートする｜群馬大学電子計算機研究会 IGGG](https://iggg.github.io/2019/11/03/tweet-by-gh-actions/)
     - posted on 2019-11-03
-- [mixi git challenge 第12回に向けてと終えて](https://medium.com/mixi-developers/mixi-git-challenge-12-4efc1fafe26e)
-    - posted on 2019-10-29
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
