@@ -43,6 +43,9 @@ jobs:
     - name: Build and Test
       run: stack --system-ghc test --copy-bins --local-bin-path=./bin
 
+    - name: Run example
+      run: stack --system-ghc exec -- whoami -o example/whoami.md example/whoami.yaml
+
     # Build and Push Docker Image
     - name: Prepare
       id: prep
