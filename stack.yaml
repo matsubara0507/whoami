@@ -11,5 +11,5 @@ extra-deps:
   - mix
 
 docker:
-  repo: matsubara0507/stack-build
+  repo: ghcr.io/matsubara0507/stack-build:18.04
   enable: false
