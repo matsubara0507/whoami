@@ -1,10 +1,12 @@
 # Changelog for whoami
 
-## Unreleased changes
+## 1.1.0
 
 - Misc: update LTS to 17.0
 - CI: change to GitHub Actions from TravisCI
 - Image: use GitHub Container Registry instead of Docker Hub
+- Misc: update LTS to 17.15
+- Image: use base image on GHCR
 
 ## 1.0.0
 
