@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ghc: ["8.10.3"]
+        ghc: ["8.10.4"]
 
     steps:
     - uses: actions/checkout@v2
@@ -30,7 +30,7 @@ jobs:
         "
         restore-keys: |
           ${{ runner.os }}-stack-
-    - uses: haskell/actions/setup@v1.1.7
+    - uses: haskell/actions/setup@v1.2.1
       name: Setup Haskell
       with:
         ghc-version: ${{ matrix.ghc }}
@@ -43,6 +43,9 @@ jobs:
     - name: Build and Test
       run: stack --system-ghc test --copy-bins --local-bin-path=./bin
 
+    - name: Run example
+      run: stack --system-ghc exec -- whoami -o example/whoami.md example/whoami.yaml
+
     # Build and Push Docker Image
     - name: Prepare
       id: prep
@@ -54,13 +57,13 @@ jobs:
         fi
         echo ::set-output name=tags::${TAGS}
     - name: Setup QEMU
-      uses: docker/setup-qemu-action@master
+      uses: docker/setup-qemu-action@v1
       with:
         platforms: all
 
     - name: Setup Docker Buildx
       id: buildx
-      uses: docker/setup-buildx-action@master
+      uses: docker/setup-buildx-action@v1
       with:
         version: latest
 
@@ -69,7 +72,7 @@ jobs:
       with:
         registry: ghcr.io
         username: matsubara0507
-        password: ${{ secrets.CR_PAT }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and push
       uses: docker/build-push-action@v2
