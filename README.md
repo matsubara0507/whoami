@@ -8,6 +8,8 @@
     - メモ書きブログ
 
 ## My Posts
+- [ミクシィは「技術書典11」に出品します！](https://medium.com/mixi-developers/techbookfest11-f6f3e0cc1b96)
+    - posted on 2021-07-09
 - [GitHubに記述したMarkdownをSlackのMarkdownにGoで変換して通知する](https://medium.com/mixi-developers/html-to-mrkdwn-with-go-c205d6d55186)
     - posted on 2021-03-19
 - [モンストサーバーのプロファイル結果を共有するページを作る](https://medium.com/mixi-developers/monst-profile-view-page-261ed633015a)
@@ -26,8 +28,6 @@
     - posted on 2020-03-12
 - [ギッチャレの新しい採点システム その２](https://medium.com/mixi-developers/mgc-with-git-plantation-part2-7329ad46dd8f)
     - posted on 2019-11-30
-- [GitHub Actions でブログの更新をツイートする｜群馬大学電子計算機研究会 IGGG](https://iggg.github.io/2019/11/03/tweet-by-gh-actions/)
-    - posted on 2019-11-03
 
 ## Applications
 - [AnaQRam](http://github.com/matsubara0507/AnaQRam)
