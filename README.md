@@ -81,8 +81,8 @@
 - [drone](http://hackage.haskell.org/package/drone)
     - Install via `cabal install drone`. 
 - [mix](https://github.com/matsubara0507/mix.hs)
-    - building rio package configuration using cont monad with extensible   - matsubara0507/mix.hs
+    - building rio package configuration using cont monad with extensible   - GitHub - matsubara0507/mix.hs: building rio package configuration using cont monad with extensible
 - [elmap](https://github.com/matsubara0507/elmap.hs)
-    - Mapping to Elm definitions from Haskell definitions. - matsubara0507/elmap.hs
+    - Mapping to Elm definitions from Haskell definitions. - GitHub - matsubara0507/elmap.hs: Mapping to Elm definitions from Haskell definitions.
 - [fallible](https://github.com/matsubara0507/fallible)
-    - interface for fallible data type like Maybe and Either. - matsubara0507/fallible
+    - interface for fallible data type like Maybe and Either. - GitHub - matsubara0507/fallible: interface for fallible data type like Maybe and Either.
