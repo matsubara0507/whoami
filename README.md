@@ -8,25 +8,25 @@
     - メモ書きブログ
 
 ## My Posts
-- [ミクシィは「技術書典11」に出品します！](https://medium.com/mixi-developers/techbookfest11-f6f3e0cc1b96)
+- [ミクシィは「技術書典11」に出品します！](https://mixi-developers.mixi.co.jp/techbookfest11-f6f3e0cc1b96)
     - posted on 2021-07-09
-- [GitHubに記述したMarkdownをSlackのMarkdownにGoで変換して通知する](https://medium.com/mixi-developers/html-to-mrkdwn-with-go-c205d6d55186)
+- [GitHubに記述したMarkdownをSlackのMarkdownにGoで変換して通知する](https://mixi-developers.mixi.co.jp/html-to-mrkdwn-with-go-c205d6d55186)
     - posted on 2021-03-19
-- [モンストサーバーのプロファイル結果を共有するページを作る](https://medium.com/mixi-developers/monst-profile-view-page-261ed633015a)
+- [モンストサーバーのプロファイル結果を共有するページを作る](https://mixi-developers.mixi.co.jp/monst-profile-view-page-261ed633015a)
     - posted on 2021-03-10
-- [Bazel で diagrams.py を実行する](https://medium.com/mixi-developers/build-diagrams-by-bazel-6eff8323d77d)
+- [Bazel で diagrams.py を実行する](https://mixi-developers.mixi.co.jp/build-diagrams-by-bazel-6eff8323d77d)
     - posted on 2021-02-17
-- [ミクシィは「技術書典10」に出品します！](https://medium.com/mixi-developers/techbookfest10-227713d6b1b6)
+- [ミクシィは「技術書典10」に出品します！](https://mixi-developers.mixi.co.jp/techbookfest10-227713d6b1b6)
     - posted on 2020-12-25
-- [Bazel で複数の values.yaml のイメージタグを一括置換する](https://medium.com/mixi-developers/replace-values-yaml-with-bazel-977d0ceffc09)
+- [Bazel で複数の values.yaml のイメージタグを一括置換する](https://mixi-developers.mixi.co.jp/replace-values-yaml-with-bazel-977d0ceffc09)
     - posted on 2020-11-30
-- [モンスト用WebSocketサーバーにカナリアリリースを組み込む他2本](https://medium.com/mixi-developers/update-monst-ws-server-2020summer-6c495fda7784)
+- [モンスト用WebSocketサーバーにカナリアリリースを組み込む他2本](https://mixi-developers.mixi.co.jp/update-monst-ws-server-2020summer-6c495fda7784)
     - posted on 2020-10-26
-- [ミクシィは「技術書典9」に出品しました！](https://medium.com/mixi-developers/techbookfest9-327ad5f5d7e5)
+- [ミクシィは「技術書典9」に出品しました！](https://mixi-developers.mixi.co.jp/techbookfest9-327ad5f5d7e5)
     - posted on 2020-09-11
-- [ミクシィは「技術書典 応援祭」に出品しました！](https://medium.com/mixi-developers/techbookfest8-7c8010399a0a)
+- [ミクシィは「技術書典 応援祭」に出品しました！](https://mixi-developers.mixi.co.jp/techbookfest8-7c8010399a0a)
     - posted on 2020-03-12
-- [ギッチャレの新しい採点システム その２](https://medium.com/mixi-developers/mgc-with-git-plantation-part2-7329ad46dd8f)
+- [ギッチャレの新しい採点システム その２](https://mixi-developers.mixi.co.jp/mgc-with-git-plantation-part2-7329ad46dd8f)
     - posted on 2019-11-30
 
 ## Applications
