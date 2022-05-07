@@ -5,12 +5,16 @@
 
 packages:
 - completed:
-    hackage: extensible-0.8.2@sha256:f3e7497709199034222e10ba45d3730e21155fb89159ccf1fb0b55f1d7d02697,2963
+    size: 374222
+    url: https://github.com/fumieval/extensible/archive/4a1edb50c90d377085fcc3bad4c9f6e9d296b00e.tar.gz
+    name: extensible
+    version: '0.9'
+    sha256: 8005a29db91b0a67018162b69c913ddf722bdc527f5565caef2644f6ffcd0c95
     pantry-tree:
-      size: 2041
-      sha256: 29d9d1cfb1c5348141f859e74739d212d3c5af9ff0ec359e3f66f872d4be8bc6
+      size: 2982
+      sha256: 77c619f82592a969dbb6a7f5e303063678feeb965b085b9c926e6887621521af
   original:
-    hackage: extensible-0.8.2
+    url: https://github.com/fumieval/extensible/archive/4a1edb50c90d377085fcc3bad4c9f6e9d296b00e.tar.gz
 - completed:
     hackage: incremental-0.3.1@sha256:9c697bae4f7e5ceb144bde13e03ca2f36b4bc2d0c92bbc02e0a604231ee279c2,1153
     pantry-tree:
@@ -19,28 +23,28 @@ packages:
   original:
     hackage: incremental-0.3.1
 - completed:
-    hackage: membership-0@sha256:3a11d8fd53cb1a76bb9273e6c929bbf9d649f109714bf487abb3143be04ddc81,995
+    hackage: membership-0.0.1@sha256:6c4d4ab6e3fb3253c6c670e8a63f74454dc91be50b9f292d0b1355792190aee5,999
     pantry-tree:
       size: 408
-      sha256: 3b593e0d14e848e318e745555776ebb25210e5e3dec4fde5d3c08ab51ceddc62
+      sha256: b918a1a207108313b2bf453b0d9aa65122d9845c4b360c8ade46d3429ff1107a
   original:
-    hackage: membership-0
+    hackage: membership-0.0.1
 - completed:
-    size: 11913
+    size: 12123
     subdir: mix
-    url: https://github.com/matsubara0507/mix.hs/archive/75714be080db16f6a4f9d0a22e86947ffcdadc57.tar.gz
+    url: https://github.com/matsubara0507/mix.hs/archive/9bcd386526fe10a025a23e951c2de86b05129b17.tar.gz
     name: mix
     version: 0.1.1
-    sha256: c4aa501c544ab35a214e7b07f2f97fb19de644f48874c8d6838809bcf4d8edb9
+    sha256: e6ddd7f45a74d368fede8656194fbf1dd9928a903852500c3c2cd4985d821649
     pantry-tree:
-      size: 598
-      sha256: 689bed307dc233a6c50e01f00295a079dc40a4291700646f3ca423d714ba35fc
+      size: 663
+      sha256: c1ead54fea3c786e356dadde2301de201599c10e18bc0be32aa8a2e3569930aa
   original:
     subdir: mix
-    url: https://github.com/matsubara0507/mix.hs/archive/75714be080db16f6a4f9d0a22e86947ffcdadc57.tar.gz
+    url: https://github.com/matsubara0507/mix.hs/archive/9bcd386526fe10a025a23e951c2de86b05129b17.tar.gz
 snapshots:
 - completed:
-    size: 567679
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/15.yaml
-    sha256: 72e87841a0ab5b72f6f018e8ee692fd972b7bb32a944990f028e10d6eb528e63
-  original: lts-17.15
+    size: 572782
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2022/5/5.yaml
+    sha256: 42b5030fc96fe064d61c662330df4d0369c0ab48648ca2a51705cf26b32550a0
+  original: nightly-2022-05-05
