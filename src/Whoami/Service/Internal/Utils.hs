@@ -6,11 +6,11 @@ import           RIO
 
 import           Data.Extensible
 
-embedM :: (Functor f, x ∈ xs) => Comp f h x -> f (xs :/ h)
-embedM = fmap embed . getComp
+embedM :: (Functor f, x ∈ xs) => Compose f h x -> f (xs :/ h)
+embedM = fmap embed . getCompose
 
-embedAssocM :: (Functor f, Lookup xs k a) => Comp f h (k >: a) -> f (xs :/ h)
-embedAssocM = fmap embedAssoc . getComp
+embedAssocM :: (Functor f, Lookup xs k a) => Compose f h (k >: a) -> f (xs :/ h)
+embedAssocM = fmap embedAssoc . getCompose
 
 valid :: (a -> Bool) -> a -> Maybe a
 valid p a = if p a then pure a else Nothing
