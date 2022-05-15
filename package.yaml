@@ -46,6 +46,7 @@ dependencies:
 - extensible >= 0.6
 - rio
 - mix
+- time
 - yaml
 
 library:

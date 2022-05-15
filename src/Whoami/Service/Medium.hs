@@ -6,6 +6,7 @@ import qualified RIO.Text                      as Text
 import           RIO.Time
 
 import           Data.Extensible
+import           Data.Time.Format.ISO8601      (iso8601Show)
 import           Network.HTTP.Req
 import qualified Text.Feed.Import              as Feed
 import           Text.Feed.Types               (Feed (..))
@@ -75,8 +76,7 @@ toPost post = do
      <: nil
 
 formatDate :: Text -> Maybe Text
-formatDate date =
-  fromString . formatTime defaultTimeLocale (iso8601DateFormat Nothing) <$> day
+formatDate date = fromString . iso8601Show <$> day
   where
     day :: Maybe Day
     day = parseTimeM True defaultTimeLocale rfc822DateFormat (Text.unpack date)

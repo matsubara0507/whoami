@@ -13,52 +13,52 @@ import           Whoami.Service.Data.Class (runServiceM)
 exampleJson :: Text
 exampleJson = fromString
   [str|{
-      |    "library": [
-      |        {
-      |            "url": "https://hackage.haskell.org/package/chatwork",
-      |            "name": "chatwork",
-      |            "description": "The ChatWork API in Haskell"
-      |        },
-      |        {
-      |            "url": "https://hex.pm/packages/thank_you_stars",
-      |            "name": "thank_you_stars",
-      |            "description": "A tool for starring GitHub repositories."
-      |        }
-      |    ],
-      |    "post": [
-      |        {
-      |            "url": "https://haskell.jp/blog/posts/2017/advent-calendar-2017.html",
-      |            "name": "Haskell Advent Calendar 2017 まとめ - Haskell-jp",
-      |            "description": "posted on 2017-12-31"
-      |        },
-      |        {
-      |            "url": "https://iggg.github.io/2017/06/01/make-tweet-slack-bot",
-      |            "name": "Slack から特定のアカウントでツイートする Bot を作った | 群馬大学電子計算機研究会 IGGG",
-      |            "description": "posted on 2017-06-01"
-      |        }
-      |    ],
+      |    "account": {
+      |        "github": "matsubara0507",
+      |        "qiita": "matsubara0507"
+      |    },
       |    "app": [
       |        {
-      |            "url": "https://github.com/matsubara0507/AnaQRam",
+      |            "description": "QRコードを利用したアナグラム(並び替えパズル)",
       |            "name": "AnaQRam",
-      |            "description": "QRコードを利用したアナグラム(並び替えパズル)"
+      |            "url": "https://github.com/matsubara0507/AnaQRam"
       |        },
       |        {
-      |            "url": "https://github.com/matsubara0507/timeout-sesstype.hs",
+      |            "description": "修論で定義した疑似言語のCLI",
       |            "name": "timeout-sesstype-cli",
-      |            "description": "修論で定義した疑似言語のCLI"
+      |            "url": "https://github.com/matsubara0507/timeout-sesstype.hs"
       |        }
       |    ],
-      |    "account": {
-      |        "qiita": "matsubara0507",
-      |        "github": "matsubara0507"
-      |    },
+      |    "library": [
+      |        {
+      |            "description": "The ChatWork API in Haskell",
+      |            "name": "chatwork",
+      |            "url": "https://hackage.haskell.org/package/chatwork"
+      |        },
+      |        {
+      |            "description": "A tool for starring GitHub repositories.",
+      |            "name": "thank_you_stars",
+      |            "url": "https://hex.pm/packages/thank_you_stars"
+      |        }
+      |    ],
       |    "name": "MATSUBARA Nobutada",
+      |    "post": [
+      |        {
+      |            "description": "posted on 2017-12-31",
+      |            "name": "Haskell Advent Calendar 2017 まとめ - Haskell-jp",
+      |            "url": "https://haskell.jp/blog/posts/2017/advent-calendar-2017.html"
+      |        },
+      |        {
+      |            "description": "posted on 2017-06-01",
+      |            "name": "Slack から特定のアカウントでツイートする Bot を作った | 群馬大学電子計算機研究会 IGGG",
+      |            "url": "https://iggg.github.io/2017/06/01/make-tweet-slack-bot"
+      |        }
+      |    ],
       |    "site": [
       |        {
-      |            "url": "https://matsubara0507.github.io",
+      |            "description": "メモ書きブログ",
       |            "name": "ひげメモ",
-      |            "description": "メモ書きブログ"
+      |            "url": "https://matsubara0507.github.io"
       |        }
       |    ]
       |}|]
